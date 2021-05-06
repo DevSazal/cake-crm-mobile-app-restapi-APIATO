@@ -21,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('device')->nullable();
             $table->string('platform')->nullable();
             $table->boolean('is_admin')->default(true);
+
+            $table->text('image')->nullable();
+            $table->string('phone')->nullable();
+            
             $table->rememberToken();
             $table->timestamps();
         });
