@@ -35,7 +35,17 @@ class UpdateSellerRequest extends Request
     public function rules(): array
     {
         return [
-            'id' => 'required'
+            'id' => 'required',
+            // TODO: Update Seller Info IF User Want
+            'first_name' => 'required|string|min:2|max:30',
+            'last_name' => 'required|string|min:2|max:30',
+            'brand_name' => 'required|string|min:2|max:50',
+            'phone' => 'required|string|min:3|max:20',
+
+            'address' => 'nullable',
+            'city_id' => 'nullable|integer',
+            'state_id' => 'nullable|integer',
+            'zip_code' => 'nullable',
         ];
     }
 
