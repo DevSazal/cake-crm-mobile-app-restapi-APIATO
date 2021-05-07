@@ -16,6 +16,9 @@ use App\Containers\AppSection\Seller\Actions\DeleteSellerAction;
 use App\Ship\Parents\Controllers\ApiController;
 use Illuminate\Http\JsonResponse;
 
+use App\Containers\AppSection\Seller\UI\API\Requests\UpdateSellerLogoRequest;
+use App\Containers\AppSection\Seller\Actions\UpdateSellerLogoByIdAction;
+
 class Controller extends ApiController
 {
     public function createSeller(CreateSellerRequest $request): JsonResponse
@@ -47,4 +50,12 @@ class Controller extends ApiController
         app(DeleteSellerAction::class)->run($request);
         return $this->noContent();
     }
+
+    // TODO: Update Seller Logo By Id IF User Want
+    public function updateSellerLogoById(UpdateSellerLogoRequest $request): array
+    {
+        $seller = app(UpdateSellerLogoByIdAction::class)->run($request);
+        return $this->transform($seller, SellerTransformer::class);
+    }
+
 }
