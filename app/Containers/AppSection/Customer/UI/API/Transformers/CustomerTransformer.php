@@ -5,13 +5,15 @@ namespace App\Containers\AppSection\Customer\UI\API\Transformers;
 use App\Containers\AppSection\Customer\Models\Customer;
 use App\Ship\Parents\Transformers\Transformer;
 
+use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
+
 class CustomerTransformer extends Transformer
 {
     /**
      * @var  array
      */
     protected $defaultIncludes = [
-
+        'user',
     ];
 
     /**
@@ -53,5 +55,11 @@ class CustomerTransformer extends Transformer
         ], $response);
 
         return $response;
+    }
+
+    public function includeUser(Customer $customer)
+    {
+        // use `item` with single relationship
+        return $this->item($customer->user, new UserTransformer());
     }
 }
