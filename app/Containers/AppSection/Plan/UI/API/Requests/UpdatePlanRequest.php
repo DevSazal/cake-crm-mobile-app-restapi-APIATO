@@ -35,7 +35,12 @@ class UpdatePlanRequest extends Request
     public function rules(): array
     {
         return [
-            'id' => 'required'
+            'id' => 'required',
+            // TODO: Update Plans
+            'title' => 'required|string|unique:plans,title',
+            'price' => 'required|numeric',
+            'customer' => 'nullable|integer',
+            'sms' => 'nullable|integer',
         ];
     }
 
