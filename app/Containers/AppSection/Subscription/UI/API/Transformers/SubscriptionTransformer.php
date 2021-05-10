@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Containers\AppSection\Subscription\UI\API\Transformers;
+
+use App\Containers\AppSection\Subscription\Models\Subscription;
+use App\Ship\Parents\Transformers\Transformer;
+
+class SubscriptionTransformer extends Transformer
+{
+    /**
+     * @var  array
+     */
+    protected $defaultIncludes = [
+
+    ];
+
+    /**
+     * @var  array
+     */
+    protected $availableIncludes = [
+
+    ];
+
+    public function transform(Subscription $subscription): array
+    {
+        $response = [
+            'object' => $subscription->getResourceKey(),
+            'id' => $subscription->getHashedKey(),
+
+            'plan_id' =>  $subscription->plan_id,
+            'user_id' =>  $subscription->user_id,
+            'trial_ends_at' =>  $subscription->trial_ends_at,
+            'ends_at' =>  $subscription->ends_at,
+            'payment_id' =>  $subscription->payment_id,
+            'order_id' =>  $subscription->order_id,
+
+            'created_at' => $subscription->created_at,
+            'updated_at' => $subscription->updated_at,
+            'readable_created_at' => $subscription->created_at->diffForHumans(),
+            'readable_updated_at' => $subscription->updated_at->diffForHumans(),
+
+        ];
+
+        $response = $this->ifAdmin([
+            'real_id'    => $subscription->id,
+            // 'deleted_at' => $subscription->deleted_at,
+        ], $response);
+
+        return $response;
+    }
+}
