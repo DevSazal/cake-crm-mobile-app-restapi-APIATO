@@ -5,13 +5,15 @@ namespace App\Containers\AppSection\Subscription\UI\API\Transformers;
 use App\Containers\AppSection\Subscription\Models\Subscription;
 use App\Ship\Parents\Transformers\Transformer;
 
+use App\Containers\AppSection\Plan\UI\API\Transformers\PlanTransformer;
+
 class SubscriptionTransformer extends Transformer
 {
     /**
      * @var  array
      */
     protected $defaultIncludes = [
-
+        'plan'
     ];
 
     /**
@@ -48,4 +50,11 @@ class SubscriptionTransformer extends Transformer
 
         return $response;
     }
+
+    public function includePlan(Subscription $subscription)
+    {
+        // use `item` with single relationship
+        return $this->item($subscription->plan, new PlanTransformer());
+    }
+
 }
