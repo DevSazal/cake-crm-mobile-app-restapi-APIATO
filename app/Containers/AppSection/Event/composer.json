@@ -1,0 +1,6 @@
+{
+  "name": "apiato/event",
+  "description": "Event Container for apiato.",
+  "require": {
+  }
+}
