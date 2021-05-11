@@ -16,10 +16,35 @@ use App\Containers\AppSection\Customer\Actions\DeleteCustomerAction;
 use App\Ship\Parents\Controllers\ApiController;
 use Illuminate\Http\JsonResponse;
 
+use Illuminate\Support\Facades\Auth;
+
 class Controller extends ApiController
 {
     public function createCustomer(CreateCustomerRequest $request): JsonResponse
     {
+        if (date('Y-m-d') > Auth::user()->subscription->ends_at)
+        {
+          // TODO: Membership Verify
+          $response = [
+            'error' => 'Your subscription is over! Please renew or upgrade your plan.',
+          ];
+
+          return response()->json($response, 401);
+        }
+
+        if (auth()->user()->total_customers >=  auth()->user()->subscription->plan->customer)
+        {
+          // TODO: Customer Limit Verify
+          $response = [
+            'error' => 'Oops! You already reached to your subscription limit.',
+          ];
+
+          // echo auth()->user()->total_customers;
+          // echo auth()->user()->subscription->plan->customer;
+
+          return response()->json($response, 401);
+        }
+
         $customer = app(CreateCustomerAction::class)->run($request);
         return $this->created($this->transform($customer, CustomerTransformer::class));
     }
