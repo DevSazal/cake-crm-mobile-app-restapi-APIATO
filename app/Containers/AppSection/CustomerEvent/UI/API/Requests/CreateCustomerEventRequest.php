@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Containers\AppSection\Customer\UI\API\Requests;
+namespace App\Containers\AppSection\CustomerEvent\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
-class CreateCustomerRequest extends Request
+class CreateCustomerEventRequest extends Request
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -19,7 +19,6 @@ class CreateCustomerRequest extends Request
      */
     protected array $decode = [
         // 'id',
-        'user_id',
     ];
 
     /**
@@ -37,23 +36,10 @@ class CreateCustomerRequest extends Request
     {
         return [
             // 'id' => 'required'
-            'user_id' => 'nullable|integer',
-            'first_name' => 'required|string|min:2|max:30',
-            'last_name' => 'required|string|min:2|max:30',
-            'email' => 'required|email',
-            'phone' => 'required|string|min:3|max:20',
-
-            // TODO: Event Array
-            'events' => 'nullable|array',
-            'events.*.event_id' => 'required|integer',
-            'events.*.event_date' => 'required|date',
-
-            'address' => 'nullable',
-            'city_id' => 'nullable|integer',
-            'state_id' => 'nullable|integer',
-
-            'gender' => 'nullable|integer',
-            'sms_status' => 'nullable|boolean',
+            'customer_id' => 'required|integer',
+            // 'user_id' => 'required|integer',
+            'event_id' => 'required|integer',
+            'event_date' => 'nullable|date',
         ];
     }
 
