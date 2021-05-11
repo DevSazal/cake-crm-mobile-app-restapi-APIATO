@@ -7,6 +7,9 @@ use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
 use App\Ship\Parents\Models\UserModel;
 use Illuminate\Notifications\Notifiable;
 
+// TODO: Make Relation With Subscription
+use App\Containers\AppSection\Subscription\Models\Subscription;
+
 class User extends UserModel
 {
     use AuthorizationTrait;
@@ -45,4 +48,10 @@ class User extends UserModel
         'is_admin' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
+
+    // use hasMany relation (inverse) with foreignkey & reduce read query
+    public function subscription(){
+        return $this->hasOne(Subscription::class);
+    }
+
 }

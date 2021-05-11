@@ -7,6 +7,10 @@ use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Transformers\Transformer;
 use League\Fractal\Resource\Collection;
 
+// TODO: Subscription Transformer Merge
+use App\Containers\AppSection\Subscription\UI\API\Transformers\SubscriptionTransformer;
+
+
 class UserTransformer extends Transformer
 {
     protected $availableIncludes = [
@@ -14,7 +18,7 @@ class UserTransformer extends Transformer
     ];
 
     protected $defaultIncludes = [
-
+        'subscription',
     ];
 
     public function transform(User $user): array
@@ -43,5 +47,11 @@ class UserTransformer extends Transformer
     public function includeRoles(User $user): Collection
     {
         return $this->collection($user->roles, new RoleTransformer());
+    }
+
+    public function includeSubscription(User $user)
+    {
+        // use `item` with single relationship
+        return $this->item($user->subscription, new SubscriptionTransformer());
     }
 }
