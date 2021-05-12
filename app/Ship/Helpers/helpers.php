@@ -45,25 +45,27 @@ if (!function_exists('sendOTP')) {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         $response = curl_exec($ch);
         curl_close($ch);
 
-        // $response =json_decode($response,true);
-        //
-        //  if(array_key_exists("errors",$response)){
-        //
-        //       // \Log::error('SMS Response Error : '.print_r($response,true));
-        //       return false;
-        //  }else{
-        //
-        //      // \Log::info('SMS Response : '.print_r($response,true));
-        //      return true;
-        //  }
-        dd($response);
+        $response =json_decode($response,true);
 
         // Process your response here
-        // \Log::info('Registeration Otp --> Mobile'.$orderDetails['mobile'].' Otp '.$orderDetails['otp']);
-        // return false;
+        // dd($response);
+        if(array_key_exists("errors",$response)){
+
+              \Log::error('SMS Response Error : '.print_r($response,true));
+              return false;
+        }else{
+
+              \Log::info('SMS Response : '.print_r($response,true));
+              return true;
+        }
+
+        \Log::info('Registeration Otp --> Mobile'.$number.' Otp '.$otp);
+        return false;
 
     }
     /* End */
