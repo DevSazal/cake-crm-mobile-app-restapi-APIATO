@@ -6,6 +6,9 @@ use App\Ship\Parents\Models\Model;
 
 class CustomerEvent extends Model
 {
+
+    protected $table = 'customer_events';
+
     protected $fillable = [
         'customer_id',
         'user_id',

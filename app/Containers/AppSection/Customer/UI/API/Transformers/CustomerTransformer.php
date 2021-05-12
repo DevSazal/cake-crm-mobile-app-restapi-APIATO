@@ -42,6 +42,9 @@ class CustomerTransformer extends Transformer
             'gender' => $customer->gender,
             'sms_status' => $customer->sms_status,
 
+            // TODO: Show the number of event
+            'total_events' => $user->total_events,
+
             'created_at' => $customer->created_at,
             'updated_at' => $customer->updated_at,
             'readable_created_at' => $customer->created_at->diffForHumans(),

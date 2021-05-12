@@ -5,6 +5,7 @@ namespace App\Containers\AppSection\Customer\Models;
 use App\Ship\Parents\Models\Model;
 
 use App\Containers\AppSection\User\Models\User;
+use App\Containers\AppSection\CustomerEvent\Models\CustomerEvent;
 
 class Customer extends Model
 {
@@ -48,6 +49,11 @@ class Customer extends Model
     // use hasMany relation (inverse) with foreignkey & reduce read query
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function getTotalEventsAttribute()
+    {
+        return $this->hasMany(CustomerEvent::class)->whereCustomerId($this->id)->count();
     }
 
 }
