@@ -6,6 +6,7 @@ use App\Containers\AppSection\Customer\Models\Customer;
 use App\Ship\Parents\Transformers\Transformer;
 
 use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
+use App\Containers\AppSection\CustomerEvent\UI\API\Transformers\CustomerEventTransformer;
 
 class CustomerTransformer extends Transformer
 {
@@ -14,6 +15,7 @@ class CustomerTransformer extends Transformer
      */
     protected $defaultIncludes = [
         'user',
+        'customer_events',
     ];
 
     /**
@@ -43,7 +45,7 @@ class CustomerTransformer extends Transformer
             'sms_status' => $customer->sms_status,
 
             // TODO: Show the number of event
-            'total_events' => $user->total_events,
+            'total_events' => $customer->total_events,
 
             'created_at' => $customer->created_at,
             'updated_at' => $customer->updated_at,
@@ -65,4 +67,11 @@ class CustomerTransformer extends Transformer
         // use `item` with single relationship
         return $this->item($customer->user, new UserTransformer());
     }
+
+    public function includeCustomerEvents(Customer $customer)
+    {
+        // use `collection` with multi relationship
+        return $this->collection($customer->customerevents, new CustomerEventTransformer());
+    }
+
 }

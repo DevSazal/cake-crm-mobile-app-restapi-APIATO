@@ -56,4 +56,9 @@ class Customer extends Model
         return $this->hasMany(CustomerEvent::class)->whereCustomerId($this->id)->count();
     }
 
+    // use hasMany relation with foreignkey & reduce read query
+    public function customerEvents(){
+        return $this->hasMany(CustomerEvent::class);
+    }
+
 }

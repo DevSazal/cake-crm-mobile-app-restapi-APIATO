@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\CustomerEvent\Models;
 
 use App\Ship\Parents\Models\Model;
+use App\Containers\AppSection\Event\Models\Event;
 
 class CustomerEvent extends Model
 {
@@ -37,4 +38,10 @@ class CustomerEvent extends Model
      * A resource key to be used in the serialized responses.
      */
     protected string $resourceKey = 'CustomerEvent';
+
+    // use hasMany relation (inverse) with foreignkey & reduce read query
+    public function event(){
+        return $this->belongsTo(Event::class);
+    }
+
 }

@@ -30,6 +30,8 @@ class CustomerEventTransformer extends Transformer
             'customer_id' => $customerevent->customer_id,
             'user_id' => $customerevent->user_id,
             'event_id' => $customerevent->event_id,
+
+            'event_title' => $customerevent->event->title,
             'event_date' => $customerevent->event_date,
 
             'created_at' => $customerevent->created_at,
