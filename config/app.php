@@ -28,6 +28,10 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    // TODO: for using sms gateway
+    'localtext_api_key'=> env('TEXTLOCAL_API_KEY'),
+    'localtext_sender'=> env('TEXTLOCAL_SENDER'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
