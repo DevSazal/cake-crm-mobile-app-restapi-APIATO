@@ -14,7 +14,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('password');
+
+            $table->string('password')->nullable();  // TODO: OTP Based 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('gender')->nullable();
             $table->string('birth')->nullable();
@@ -24,7 +25,7 @@ class CreateUsersTable extends Migration
 
             $table->text('image')->nullable();
             $table->string('phone')->nullable();
-            
+
             $table->rememberToken();
             $table->timestamps();
         });
