@@ -38,6 +38,11 @@ class User extends UserModel
         'social_nickname',
         'email_verified_at',
         'is_admin',
+
+        'last_name',
+        'phone',
+        'otp',
+        'active',
     ];
 
     protected $hidden = [

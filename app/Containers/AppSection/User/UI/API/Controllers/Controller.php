@@ -10,7 +10,10 @@ use App\Containers\AppSection\User\Actions\GetAllAdminsAction;
 use App\Containers\AppSection\User\Actions\GetAllClientsAction;
 use App\Containers\AppSection\User\Actions\GetAllUsersAction;
 use App\Containers\AppSection\User\Actions\GetAuthenticatedUserAction;
+
 use App\Containers\AppSection\User\Actions\RegisterUserAction;
+use App\Containers\AppSection\User\Actions\RegisterUserByMobileAction;
+
 use App\Containers\AppSection\User\Actions\ResetPasswordAction;
 use App\Containers\AppSection\User\Actions\UpdateUserAction;
 use App\Containers\AppSection\User\UI\API\Requests\CreateAdminRequest;
@@ -19,7 +22,10 @@ use App\Containers\AppSection\User\UI\API\Requests\FindUserByIdRequest;
 use App\Containers\AppSection\User\UI\API\Requests\ForgotPasswordRequest;
 use App\Containers\AppSection\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\AppSection\User\UI\API\Requests\GetAuthenticatedUserRequest;
+
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserRequest;
+use App\Containers\AppSection\User\UI\API\Requests\RegisterUserByMobileRequest;
+
 use App\Containers\AppSection\User\UI\API\Requests\ResetPasswordRequest;
 use App\Containers\AppSection\User\UI\API\Requests\UpdateUserRequest;
 use App\Containers\AppSection\User\UI\API\Transformers\UserPrivateProfileTransformer;
@@ -32,6 +38,13 @@ class Controller extends ApiController
     public function registerUser(RegisterUserRequest $request): array
     {
         $user = app(RegisterUserAction::class)->run($request);
+        return $this->transform($user, UserTransformer::class);
+    }
+
+    // TODO: Sign Up with Mobile Number
+    public function registerUserByMobile(RegisterUserByMobileRequest $request): array
+    {
+        $user = app(RegisterUserByMobileAction::class)->run($request);
         return $this->transform($user, UserTransformer::class);
     }
 
