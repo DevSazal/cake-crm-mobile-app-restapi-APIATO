@@ -45,8 +45,14 @@ if (!function_exists('sendOTP')) {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        /*
+        * CURLOPT_SSL_VERIFY = False for localhost Test
+        */
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        /*
+        * End
+        */
         $response = curl_exec($ch);
         curl_close($ch);
 

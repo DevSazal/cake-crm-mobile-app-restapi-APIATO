@@ -15,6 +15,7 @@ use App\Containers\AppSection\User\Actions\RegisterUserAction;
 use App\Containers\AppSection\User\Actions\RegisterUserByMobileAction;
 use App\Containers\AppSection\User\Actions\RegisterVerifyByOTPAction;
 use App\Containers\AppSection\User\Actions\SendOTPforLoginAction;
+use App\Containers\AppSection\User\Actions\OauthTokenByOTPAction;
 
 use App\Containers\AppSection\User\Actions\ResetPasswordAction;
 use App\Containers\AppSection\User\Actions\UpdateUserAction;
@@ -29,6 +30,7 @@ use App\Containers\AppSection\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserByMobileRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterVerifyByOTPRequest;
 use App\Containers\AppSection\User\UI\API\Requests\SendOTPforLoginRequest;
+use App\Containers\AppSection\User\UI\API\Requests\OauthTokenByOTPRequest;
 
 use App\Containers\AppSection\User\UI\API\Requests\ResetPasswordRequest;
 use App\Containers\AppSection\User\UI\API\Requests\UpdateUserRequest;
@@ -78,6 +80,30 @@ class Controller extends ApiController
         ];
 
         return response()->json($response, 202);
+    }
+
+    // TODO: make OAUTH TOKEN for OTP LOGIN
+    public function oauthTokenByOTP(OauthTokenByOTPRequest $request): JsonResponse
+    {
+        $user = app(OauthTokenByOTPAction::class)->run($request);
+
+        if (!auth()->check()) {
+
+            $response = [
+              'message' => 'Invalid credentials',
+            ];
+            return response()->json($response, 402);
+        }
+
+        $accessToken = auth()->user()->createToken('authTokenOTP')->accessToken;
+
+        $response = [
+          'token_type' =>  'Bearer',
+          'access_token' => $accessToken,
+        ];
+
+        return response()->json($response, 201);
+
     }
 
     public function createAdmin(CreateAdminRequest $request): array

@@ -58,11 +58,6 @@ class Controller extends ApiController
     public function getAllCustomers(GetAllCustomersRequest $request): array
     {
         $customers = app(GetAllCustomersAction::class)->run($request);
-        // sendOTP(919359433670, createOTP());
-        // sendOTP(918530488998, createOTP());
-        // $accessToken = auth()->user()->createToken('authToken')->accessToken;
-        // return response(['access_token' => $accessToken]);
-        // dd($accessToken);
         return $this->transform($customers, CustomerTransformer::class);
     }
 
