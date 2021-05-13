@@ -14,6 +14,7 @@ use App\Containers\AppSection\User\Actions\GetAuthenticatedUserAction;
 use App\Containers\AppSection\User\Actions\RegisterUserAction;
 use App\Containers\AppSection\User\Actions\RegisterUserByMobileAction;
 use App\Containers\AppSection\User\Actions\RegisterVerifyByOTPAction;
+use App\Containers\AppSection\User\Actions\SendOTPforLoginAction;
 
 use App\Containers\AppSection\User\Actions\ResetPasswordAction;
 use App\Containers\AppSection\User\Actions\UpdateUserAction;
@@ -27,6 +28,7 @@ use App\Containers\AppSection\User\UI\API\Requests\GetAuthenticatedUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserByMobileRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterVerifyByOTPRequest;
+use App\Containers\AppSection\User\UI\API\Requests\SendOTPforLoginRequest;
 
 use App\Containers\AppSection\User\UI\API\Requests\ResetPasswordRequest;
 use App\Containers\AppSection\User\UI\API\Requests\UpdateUserRequest;
@@ -49,12 +51,33 @@ class Controller extends ApiController
         $user = app(RegisterUserByMobileAction::class)->run($request);
         return $this->transform($user, UserTransformer::class);
     }
-    
+
     // TODO: Verify By OTP to active registered user
     public function registerVerifyByOTP(RegisterVerifyByOTPRequest $request): array
     {
         $user = app(RegisterVerifyByOTPAction::class)->run($request);
         return $this->transform($user, UserTransformer::class);
+    }
+
+    // TODO: Send OTP to login with mobile
+    public function sendOTPforLogin(SendOTPforLoginRequest $request): JsonResponse
+    {
+        $user = app(SendOTPforLoginAction::class)->run($request);
+
+        // return $this->noContent(202);
+        if ($user->sms == false) {
+
+            $response = [
+              'error' => 'Oops! We could not send you OTP',
+            ];
+            return response()->json($response, 412);
+        }
+
+        $response = [
+          'success' => 'The OTP has been sent',
+        ];
+
+        return response()->json($response, 202);
     }
 
     public function createAdmin(CreateAdminRequest $request): array
