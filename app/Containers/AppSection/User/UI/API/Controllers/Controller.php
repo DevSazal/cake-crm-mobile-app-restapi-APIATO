@@ -13,6 +13,7 @@ use App\Containers\AppSection\User\Actions\GetAuthenticatedUserAction;
 
 use App\Containers\AppSection\User\Actions\RegisterUserAction;
 use App\Containers\AppSection\User\Actions\RegisterUserByMobileAction;
+use App\Containers\AppSection\User\Actions\RegisterVerifyByOTPAction;
 
 use App\Containers\AppSection\User\Actions\ResetPasswordAction;
 use App\Containers\AppSection\User\Actions\UpdateUserAction;
@@ -25,6 +26,7 @@ use App\Containers\AppSection\User\UI\API\Requests\GetAuthenticatedUserRequest;
 
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserByMobileRequest;
+use App\Containers\AppSection\User\UI\API\Requests\RegisterVerifyByOTPRequest;
 
 use App\Containers\AppSection\User\UI\API\Requests\ResetPasswordRequest;
 use App\Containers\AppSection\User\UI\API\Requests\UpdateUserRequest;
@@ -45,6 +47,13 @@ class Controller extends ApiController
     public function registerUserByMobile(RegisterUserByMobileRequest $request): array
     {
         $user = app(RegisterUserByMobileAction::class)->run($request);
+        return $this->transform($user, UserTransformer::class);
+    }
+    
+    // TODO: Verify By OTP to active registered user
+    public function registerVerifyByOTP(RegisterVerifyByOTPRequest $request): array
+    {
+        $user = app(RegisterVerifyByOTPAction::class)->run($request);
         return $this->transform($user, UserTransformer::class);
     }
 
