@@ -23,14 +23,16 @@ class OauthTokenByOTPTask extends Task
     {
         try {
             $user = $this->repository->findByField('phone', $userData['phone'])->first();
-            $user['login'] == false;
-            if ($user->otp == $userData['otp']) {
+            $user['login'] = false;
+            if ($user->otp == $userData['otp'] && $user->otp_expire >= \Carbon\Carbon::now() ) {
 
               // TODO: loginUsingId
               if(Auth::loginUsingId($user->id)){
-                $user['login'] == true;
+                $user['login'] = true;
               }
 
+            }elseif ($user->otp_expire < \Carbon\Carbon::now()) {
+              $user['error'] = 'OTP has been expired! Please try within 3 minutes.';
             }
 
             return $user;

@@ -48,8 +48,8 @@ if (!function_exists('sendOTP')) {
         /*
         * CURLOPT_SSL_VERIFY = False for localhost Test
         */
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         /*
         * End
         */

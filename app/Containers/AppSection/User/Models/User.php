@@ -42,12 +42,14 @@ class User extends UserModel
         'last_name',
         'phone',
         'otp',
+        'otp_expire',
         'active',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'otp',
     ];
 
     protected $casts = [

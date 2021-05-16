@@ -55,10 +55,20 @@ class Controller extends ApiController
     }
 
     // TODO: Verify By OTP to active registered user
-    public function registerVerifyByOTP(RegisterVerifyByOTPRequest $request): array
+    public function registerVerifyByOTP(RegisterVerifyByOTPRequest $request): JsonResponse
     {
         $user = app(RegisterVerifyByOTPAction::class)->run($request);
-        return $this->transform($user, UserTransformer::class);
+        if ($user->error)
+        {
+          // TODO: OTP Timer Verify
+          $response = [
+            'error' => $user->error,
+          ];
+
+          return response()->json($response, 401);
+        }
+
+        return response()->json($user, 202);
     }
 
     // TODO: Send OTP to login with mobile
@@ -86,6 +96,16 @@ class Controller extends ApiController
     public function oauthTokenByOTP(OauthTokenByOTPRequest $request): JsonResponse
     {
         $user = app(OauthTokenByOTPAction::class)->run($request);
+
+        if ($user->error)
+        {
+          // TODO: OTP Timer Verify
+          $response = [
+            'error' => $user->error,
+          ];
+
+          return response()->json($response, 401);
+        }
 
         if (!auth()->check()) {
 

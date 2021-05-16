@@ -40,6 +40,7 @@ class CreateUserByMobileTask extends Task
                 'name' => $name,
                 'last_name' => $last_name,
                 'otp' => $otp,
+                'otp_expire' => \Carbon\Carbon::now()->addMinutes(3),
                 'gender' => $gender,
                 'birth' => $birth,
                 'is_admin' => $isAdmin,

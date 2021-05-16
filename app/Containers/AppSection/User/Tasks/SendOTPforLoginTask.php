@@ -25,6 +25,7 @@ class SendOTPforLoginTask extends Task
             $otp = createOTP();
             $result = sendOTP($user->phone, $otp);
             $userData['otp'] = $otp;
+            $userData['otp_expire'] = \Carbon\Carbon::now()->addMinutes(3);
             $user = $this->repository->update($userData, $user->id);
 
             if ($result == true) {
