@@ -24,5 +24,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('customers', [Controller::class, 'createCustomer'])
     ->name('api_customer_create_customer')
-    ->middleware(['auth:api']);
-
+    ->middleware(['auth:api'])
+    ->middleware(['seller']);

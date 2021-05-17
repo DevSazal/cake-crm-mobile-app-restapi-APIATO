@@ -27,6 +27,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+use App\Ship\Middlewares\Http\Seller;
+
 class HttpKernel extends LaravelHttpKernel
 {
     /**
@@ -81,6 +83,7 @@ class HttpKernel extends LaravelHttpKernel
      */
     protected $routeMiddleware = [
         'auth' => Authenticate::class,
+        'seller' => Seller::class,
         // 'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => SetCacheHeaders::class,
         // Note: The "can" Middleware is registered by MiddlewareServiceProvider in Authorization Container
