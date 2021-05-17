@@ -24,7 +24,7 @@ class OauthTokenByOTPTask extends Task
         try {
             $user = $this->repository->findByField('phone', $userData['phone'])->first();
             $user['login'] = false;
-            if ($user->otp == $userData['otp'] && $user->otp_expire >= \Carbon\Carbon::now() ) {
+            if (decryptOpenSSL($user->otp) == $userData['otp'] && $user->otp_expire >= \Carbon\Carbon::now() ) {
 
               // TODO: loginUsingId
               if(Auth::loginUsingId($user->id)){

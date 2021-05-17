@@ -24,7 +24,7 @@ class SendOTPforLoginTask extends Task
             $user = $this->repository->findByField('phone', $phone)->first();
             $otp = createOTP();
             $result = sendOTP($user->phone, $otp);
-            $userData['otp'] = $otp;
+            $userData['otp'] = encryptOpenSSL($otp);
             $userData['otp_expire'] = \Carbon\Carbon::now()->addMinutes(3);
             $user = $this->repository->update($userData, $user->id);
 

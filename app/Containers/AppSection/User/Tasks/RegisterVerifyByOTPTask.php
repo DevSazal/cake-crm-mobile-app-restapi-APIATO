@@ -30,12 +30,15 @@ class RegisterVerifyByOTPTask extends Task
         try {
 
             $user = $this->repository->find($userId);
-            if ($user->otp == $userData['otp'] && $user->otp_expire >= \Carbon\Carbon::now() ) {
+            if (decryptOpenSSL($user->otp) == $userData['otp'] && $user->otp_expire >= \Carbon\Carbon::now() ) {
               // active user if OTP match
               $userData['active'] = true;
+              $userData['otp'] = $user->otp;
               $user = $this->repository->update($userData, $userId);
             }elseif ($user->otp_expire < \Carbon\Carbon::now()) {
               $user['error'] = 'OTP has been expired! Please try within 3 minutes.';
+            }elseif (decryptOpenSSL($user->otp) != $userData['otp']) {
+              $user['error'] = 'OTP is not matched';
             }
 
 

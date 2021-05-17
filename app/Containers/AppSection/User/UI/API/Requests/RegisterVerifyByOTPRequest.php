@@ -36,7 +36,7 @@ class RegisterVerifyByOTPRequest extends Request
     {
         return [
             'id' => 'required|exists:users,id',
-            'otp' => 'required|exists:users,otp',
+            'otp' => 'required',
         ];
     }
 

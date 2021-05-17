@@ -36,7 +36,7 @@ class OauthTokenByOTPRequest extends Request
     {
         return [
             'phone' => 'required|exists:users,phone',
-            'otp' => 'required|exists:users,otp',
+            'otp' => 'required',
         ];
     }
 

@@ -34,7 +34,7 @@ if (!function_exists('sendOTP')) {
         // Message details
         $numbers = array($number);
         $sender = urlencode(config('app.localtext_sender'));
-        $message = rawurlencode('Hi, '.$otp.' is your OTP to your account for Onsite Fuel Delivery - Webassic IT Solutions');
+        $message = rawurlencode('Hi, '.$otp.' is your OTP to activate your account for Onsite Fuel Delivery - Webassic IT Solutions');
 
         $numbers = implode(',', $numbers);
         // Prepare data for POST request
@@ -73,6 +73,76 @@ if (!function_exists('sendOTP')) {
         \Log::info('Registeration Otp --> Mobile'.$number.' Otp '.$otp);
         return false;
 
+    }
+    /* End */
+}
+
+
+if (!function_exists('encryptOpenSSL')) {
+    /*
+    * OpenSSl Encryption
+    * Author: DevSazal
+    */
+    function encryptOpenSSL($password) {
+
+      // Store a string into the variable which
+      // need to be Encrypted
+      $simple_string = $password;
+
+      // Store the cipher method
+      $ciphering = "AES-256-CBC";
+
+      // Use OpenSSl Encryption method
+      $iv_length = openssl_cipher_iv_length($ciphering);
+      // echo $iv_length;
+      // echo "<br>";
+      $options = 0;
+
+      // Non-NULL Initialization Vector for encryption
+      $encryption_iv = '1234567891011121';
+
+      // Store the encryption key
+      $encryption_key = "RahulEncryptedByte";
+
+      // Use openssl_encrypt() function to encrypt the data
+      $encryption = openssl_encrypt($simple_string, $ciphering,
+      $encryption_key, $options, $encryption_iv);
+
+      return $encryption;
+    }
+    /* End */
+}
+
+if (!function_exists('decryptOpenSSL')) {
+    /*
+    * OpenSSl Decryption
+    * Author: Sazal Ahamed
+    */
+    function decryptOpenSSL($encryptedPassword) {
+
+      // Store a string into the variable which
+      // need to be Encrypted
+
+
+      // Store the cipher method
+      $ciphering = "AES-256-CBC";
+
+      // Use OpenSSl Encryption method
+      $iv_length = openssl_cipher_iv_length($ciphering);
+      $options = 0;
+
+      // Non-NULL Initialization Vector for decryption
+      $decryption_iv = '1234567891011121';
+
+      // Store the decryption key
+      $decryption_key = "RahulEncryptedByte";
+
+      // Use openssl_decrypt() function to decrypt the data
+      $decryption=openssl_decrypt ($encryptedPassword, $ciphering,
+      $decryption_key, $options, $decryption_iv);
+
+      // Display the decrypted string
+      return $decryption;
     }
     /* End */
 }
