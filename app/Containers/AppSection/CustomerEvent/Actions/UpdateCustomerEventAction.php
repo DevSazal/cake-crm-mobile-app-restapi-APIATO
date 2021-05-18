@@ -13,7 +13,13 @@ class UpdateCustomerEventAction extends Action
     {
         $data = $request->sanitizeInput([
             // add your request data here
+            // 'customer_id',
+            // 'user_id',
+            'event_id',
+            'event_date',
         ]);
+
+        // $data['user_id'] = auth()->user()->id;
 
         return app(UpdateCustomerEventTask::class)->run($request->id, $data);
     }

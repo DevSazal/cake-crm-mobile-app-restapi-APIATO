@@ -19,6 +19,7 @@ class UpdateCustomerEventRequest extends Request
      */
     protected array $decode = [
         'id',
+        'event_id',
     ];
 
     /**
@@ -35,7 +36,11 @@ class UpdateCustomerEventRequest extends Request
     public function rules(): array
     {
         return [
-            'id' => 'required'
+            'id' => 'required',
+            // 'customer_id' => 'required|integer',
+            // 'user_id' => 'required|integer',
+            'event_id' => 'required|integer',
+            'event_date' => 'nullable|date',
         ];
     }
 
