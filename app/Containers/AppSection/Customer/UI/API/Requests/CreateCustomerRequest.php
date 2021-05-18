@@ -20,6 +20,7 @@ class CreateCustomerRequest extends Request
     protected array $decode = [
         // 'id',
         'user_id',
+        'events.*.event_id',
     ];
 
     /**
