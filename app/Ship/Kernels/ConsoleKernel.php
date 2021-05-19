@@ -27,6 +27,7 @@ class ConsoleKernel extends LaravelConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('apiato:wishes:sms')->everyMinute();
     }
 
     /**

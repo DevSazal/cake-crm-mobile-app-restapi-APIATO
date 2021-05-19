@@ -4,6 +4,8 @@ namespace App\Containers\AppSection\CustomerEvent\Models;
 
 use App\Ship\Parents\Models\Model;
 use App\Containers\AppSection\Event\Models\Event;
+use App\Containers\AppSection\Customer\Models\Customer;
+use App\Containers\AppSection\Subscription\Models\Subscription;
 
 class CustomerEvent extends Model
 {
@@ -43,5 +45,14 @@ class CustomerEvent extends Model
     public function event(){
         return $this->belongsTo(Event::class);
     }
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function power()
+    {
+        return $this->belongsTo(Subscription::class, 'user_id', 'user_id');
+    }
+
 
 }
