@@ -13,6 +13,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_event_id')->constrained()->onDelete('cascade'); // foreignkey for other container table
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // foreignkey for other container table
 
             $table->date('delivery_date')->nullable();
 

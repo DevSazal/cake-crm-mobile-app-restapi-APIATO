@@ -16,6 +16,6 @@ class GetAllOrdersTask extends Task
 
     public function run()
     {
-        return $this->repository->paginate();
+        return $this->repository->where('user_id', auth()->user()->id)->paginate();
     }
 }

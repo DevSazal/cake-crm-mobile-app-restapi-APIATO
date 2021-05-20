@@ -6,6 +6,7 @@ use App\Containers\AppSection\Order\Models\Order;
 use App\Containers\AppSection\Order\Tasks\CreateOrderTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
+use App\Containers\AppSection\CustomerEvent\Tasks\FindCustomerEventByIdTask;
 
 class CreateOrderAction extends Action
 {
@@ -29,6 +30,10 @@ class CreateOrderAction extends Action
             'city_id',
             'state_id',
         ]);
+
+        // TODO: Add foreignkey from backend
+        $customer_event = app(FindCustomerEventByIdTask::class)->run($customer_event_id);
+        $data['user_id'] = $customer_event->user_id;
 
         return app(CreateOrderTask::class)->run($data);
     }
