@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\Order\Models;
 
 use App\Ship\Parents\Models\Model;
+use App\Containers\AppSection\CustomerEvent\Models\CustomerEvent;
 
 class Order extends Model
 {
@@ -48,4 +49,10 @@ class Order extends Model
      * A resource key to be used in the serialized responses.
      */
     protected string $resourceKey = 'Order';
+
+    // use hasMany relation (inverse) with foreignkey & reduce read query
+    public function customerEvent(){
+        return $this->belongsTo(CustomerEvent::class);
+    }
+
 }
