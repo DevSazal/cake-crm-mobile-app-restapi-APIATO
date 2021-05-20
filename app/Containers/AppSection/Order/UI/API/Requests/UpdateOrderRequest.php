@@ -35,7 +35,8 @@ class UpdateOrderRequest extends Request
     public function rules(): array
     {
         return [
-            'id' => 'required'
+            'id' => 'required',
+            'status' => 'integer',
         ];
     }
 

@@ -13,6 +13,7 @@ class UpdateOrderAction extends Action
     {
         $data = $request->sanitizeInput([
             // add your request data here
+            'status'
         ]);
 
         return app(UpdateOrderTask::class)->run($request->id, $data);
