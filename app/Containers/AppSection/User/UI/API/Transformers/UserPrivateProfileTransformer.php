@@ -9,6 +9,7 @@ use League\Fractal\Resource\Collection;
 
 // TODO: Subscription Transformer Merge
 use App\Containers\AppSection\Subscription\UI\API\Transformers\SubscriptionTransformer;
+use App\Containers\AppSection\Seller\UI\API\Transformers\SellerTransformer;
 
 class UserPrivateProfileTransformer extends Transformer
 {
@@ -18,6 +19,7 @@ class UserPrivateProfileTransformer extends Transformer
 
     protected $defaultIncludes = [
         'subscription',
+        'seller',
     ];
 
     public function transform(User $user): array
@@ -59,6 +61,14 @@ class UserPrivateProfileTransformer extends Transformer
         // use `item` with single relationship
         if (!$user->subscription == null) {
           return $this->item($user->subscription, new SubscriptionTransformer());
+        }
+    }
+
+    public function includeSeller(User $user)
+    {
+        // use `item` with single relationship
+        if (!$user->seller == null) {
+          return $this->item($user->seller, new SellerTransformer());
         }
     }
 }

@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 // TODO: Make Relation With Subscription
 use App\Containers\AppSection\Subscription\Models\Subscription;
 use App\Containers\AppSection\Customer\Models\Customer;
+use App\Containers\AppSection\Seller\Models\Seller;
 
 class User extends UserModel
 {
@@ -66,6 +67,11 @@ class User extends UserModel
     public function getTotalCustomersAttribute()
     {
         return $this->hasMany(Customer::class)->whereUserId($this->id)->count();
+    }
+
+    // use hasOne relation with foreignkey & reduce read query
+    public function seller(){
+        return $this->hasOne(Seller::class);
     }
 
 }
