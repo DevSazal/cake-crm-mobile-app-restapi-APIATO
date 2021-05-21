@@ -6,6 +6,7 @@ use App\Ship\Parents\Models\Model;
 use App\Containers\AppSection\Event\Models\Event;
 use App\Containers\AppSection\Customer\Models\Customer;
 use App\Containers\AppSection\Subscription\Models\Subscription;
+use App\Containers\AppSection\User\Models\User;
 
 class CustomerEvent extends Model
 {

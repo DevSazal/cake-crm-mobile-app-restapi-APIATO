@@ -4,6 +4,8 @@ namespace App\Containers\AppSection\CustomerEvent\UI\API\Transformers;
 
 use App\Containers\AppSection\CustomerEvent\Models\CustomerEvent;
 use App\Ship\Parents\Transformers\Transformer;
+use App\Containers\AppSection\Customer\UI\API\Transformers\CustomerTransformer;
+use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
 
 class CustomerEventTransformer extends Transformer
 {
@@ -11,7 +13,7 @@ class CustomerEventTransformer extends Transformer
      * @var  array
      */
     protected $defaultIncludes = [
-
+        // 'customer',
     ];
 
     /**
@@ -31,6 +33,8 @@ class CustomerEventTransformer extends Transformer
             'user_id' => $customerevent->user_id,
             'event_id' => $customerevent->event_id,
 
+            'customer_name' => $customerevent->customer->first_name.' '.$customerevent->customer->last_name,
+
             'event_title' => $customerevent->event->title,
             'event_date' => $customerevent->event_date,
 
@@ -47,5 +51,12 @@ class CustomerEventTransformer extends Transformer
         ], $response);
 
         return $response;
+    }
+
+    public function includeCustomer(CustomerEvent $customer_event)
+    {
+        // use `item` with single relationship
+        return $this->item($customer_event->customer, new CustomerTransformer());
+
     }
 }
