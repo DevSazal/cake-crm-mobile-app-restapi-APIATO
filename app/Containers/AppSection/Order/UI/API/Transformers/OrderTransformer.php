@@ -12,14 +12,14 @@ class OrderTransformer extends Transformer
      * @var  array
      */
     protected $defaultIncludes = [
-
+        'customer_event',
     ];
 
     /**
      * @var  array
      */
     protected $availableIncludes = [
-        'customer_event',
+
     ];
 
     public function transform(Order $order): array
@@ -29,8 +29,8 @@ class OrderTransformer extends Transformer
             'id' => $order->getHashedKey(),
             // TODO: orders info
             'customer_event_id' => $order->customer_event_id,
-            'customer_event_customer_first_name' => $order->customerEvent->customer->first_name,
-            'customer_event_customer_last_name' => $order->customerEvent->customer->last_name,
+            // 'customer_event_customer_first_name' => $order->customerEvent->customer->first_name,
+            // 'customer_event_customer_last_name' => $order->customerEvent->customer->last_name,
 
             'delivery_date' => $order->delivery_date,
             'first_name' => $order->first_name,
@@ -61,12 +61,12 @@ class OrderTransformer extends Transformer
         return $response;
     }
 
-    // public function includeCustomerEvent(Order $order)
-    // {
-    //     // use `item` with single relationship
-    //     return $this->item($order->customerevent, new CustomerEventTransformer());
-    //
-    // }
+    public function includeCustomerEvent(Order $order)
+    {
+        // use `item` with single relationship
+        return $this->item($order->customerEvent, new CustomerEventTransformer());
+
+    }
 
 
 }
