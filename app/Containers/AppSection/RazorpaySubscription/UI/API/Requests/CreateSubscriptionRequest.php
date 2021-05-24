@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\AppSection\Razorpaysubscription\UI\API\Requests;
+namespace App\Containers\AppSection\RazorpaySubscription\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
