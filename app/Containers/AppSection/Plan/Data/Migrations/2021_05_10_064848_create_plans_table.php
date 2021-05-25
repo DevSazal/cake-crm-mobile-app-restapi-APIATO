@@ -18,6 +18,10 @@ class CreatePlansTable extends Migration
             $table->integer('customer')->nullable();
             $table->integer('sms')->nullable();
 
+            // TODO: Store RazorPay Plan Id
+            $table->string('razorpay_plan_id')->nullable();
+            $table->integer('month')->nullable();
+
             $table->timestamps();
             //$table->softDeletes();
         });

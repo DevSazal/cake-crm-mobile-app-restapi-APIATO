@@ -5,6 +5,8 @@ use App\Containers\AppSection\RazorpaySubscription\Contracts\IRazorpayService;
 use Illuminate\Support\Facades\Config;
 use Razorpay\Api\Api;
 
+use App\Containers\AppSection\Plan\Models\Plan;
+
 class RazorpayService implements IRazorpayService
 {
     public function __construct(){
@@ -19,7 +21,14 @@ class RazorpayService implements IRazorpayService
     }
     public function createSubscription($subscriptionData)
     {
+        $plan = Plan::where('razorpay_plan_id', $subscriptionData['plan_id'])->first();
+        // dd($plan->id);
         $subscription  = $this->api->subscription->create($subscriptionData);
+
+        \Session::put('plan_id', $plan->id);
+        // dd($subscription);
+        // dd(\Session::get('plan_id'));
+
         return $subscription->toArray();
     }
 

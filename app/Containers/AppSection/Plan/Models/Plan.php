@@ -11,6 +11,9 @@ class Plan extends Model
         'price',
         'customer',
         'sms',
+
+        'razorpay_plan_id',
+        'month',
     ];
 
     protected $attributes = [
