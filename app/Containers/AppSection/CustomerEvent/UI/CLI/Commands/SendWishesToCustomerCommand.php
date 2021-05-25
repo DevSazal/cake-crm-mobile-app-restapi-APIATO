@@ -35,14 +35,18 @@ class SendWishesToCustomerCommand extends ConsoleCommand
         // DB::table('customer_events')->get();
         $customer_events = CustomerEvent::where('event_date', 'LIKE', "%".date('-m-d') )->get();
         foreach ($customer_events as $customer_event) {
-            \Log::info("A wishes sms has been sent to " .$customer_event->customer->phone);
-            \Log::info("A wishes sms has been sent for " .$customer_event->event->title);
-            // \Log::info("A wishes sms has been sent to " .$customer_event->power->trial_ends_at);
-            // \Log::info("A wishes sms has been sent to " .$customer_event->power->plan->customer);
-            // sendOTP($customer_event->customer->phone, '2222');
-            $provider = 'The CakeWall';
-            $message = 'Dear '.$customer_event->customer->first_name.', We wish you a very Happy '.$customer_event->event->title.'. Have a great time! - '.$provider.'. \n Powered by - Webassic IT Solutions.';
-            sendSMS($customer_event->customer->phone, $message);
+            if($customer_event->customer->sms_status == true){
+                \Log::info("A wishes sms has been sent to " .$customer_event->customer->phone);
+                \Log::info("A wishes sms has been sent for " .$customer_event->event->title);
+                // \Log::info("A wishes sms has been sent to " .$customer_event->power->trial_ends_at);
+                // \Log::info("A wishes sms has been sent to " .$customer_event->power->plan->customer);
+                // sendOTP($customer_event->customer->phone, '2222');
+                $provider = 'The CakeWall';
+                $message = 'Dear '.$customer_event->customer->first_name.', We wish you a very Happy '.$customer_event->event->title.'. Have a great time! - '.$provider.'. \n Powered by - Webassic IT Solutions.';
+                sendSMS($customer_event->customer->phone, $message);
+          }else {
+                \Log::info("sms off by seller for " .$customer_event->customer->phone);
+          }
         }
     }
 
