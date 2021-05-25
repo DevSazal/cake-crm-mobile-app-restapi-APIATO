@@ -7,6 +7,7 @@ use App\Containers\AppSection\Event\Models\Event;
 use App\Containers\AppSection\Customer\Models\Customer;
 use App\Containers\AppSection\Subscription\Models\Subscription;
 use App\Containers\AppSection\User\Models\User;
+use App\Containers\AppSection\Order\Models\Order;
 
 class CustomerEvent extends Model
 {
@@ -48,6 +49,11 @@ class CustomerEvent extends Model
     }
     public function customer(){
         return $this->belongsTo(Customer::class);
+    }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class);
     }
 
     public function power()

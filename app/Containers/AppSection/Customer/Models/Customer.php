@@ -6,6 +6,7 @@ use App\Ship\Parents\Models\Model;
 
 use App\Containers\AppSection\User\Models\User;
 use App\Containers\AppSection\CustomerEvent\Models\CustomerEvent;
+use App\Containers\AppSection\Order\Models\Order;
 
 class Customer extends Model
 {
@@ -54,6 +55,13 @@ class Customer extends Model
     public function getTotalEventsAttribute()
     {
         return $this->hasMany(CustomerEvent::class)->whereCustomerId($this->id)->count();
+    }
+
+    // TODO: Select data from model
+    public function GetOrder()
+    {
+        // Order::where('customer_id', $customer->id)->orderBy('id', 'DESC')->take(1)->first();
+        return $this->hasMany(Order::class)->whereCustomerId($this->id)->orderBy('id', 'DESC')->take(1)->first();
     }
 
     // use hasMany relation with foreignkey & reduce read query

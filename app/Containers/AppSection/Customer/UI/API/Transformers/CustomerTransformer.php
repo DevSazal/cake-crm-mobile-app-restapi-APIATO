@@ -7,6 +7,7 @@ use App\Ship\Parents\Transformers\Transformer;
 
 use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
 use App\Containers\AppSection\CustomerEvent\UI\API\Transformers\CustomerEventTransformer;
+use App\Containers\AppSection\Order\Models\Order;
 
 class CustomerTransformer extends Transformer
 {
@@ -27,6 +28,9 @@ class CustomerTransformer extends Transformer
 
     public function transform(Customer $customer): array
     {
+        // $order = Order::where('customer_id', $customer->id)->orderBy('id', 'DESC')->take(1)->first();
+        // dd($order);
+
         $response = [
             'object' => $customer->getResourceKey(),
             'id' => $customer->getHashedKey(),
@@ -46,6 +50,7 @@ class CustomerTransformer extends Transformer
 
             // TODO: Show the number of event
             'total_events' => $customer->total_events,
+            'last_order' => $customer->GetOrder(),
 
             'created_at' => $customer->created_at,
             'updated_at' => $customer->updated_at,

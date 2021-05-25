@@ -11,6 +11,9 @@ class Order extends Model
         'customer_event_id',
         'user_id',
 
+        'customer_id',
+        'event_id',
+
         'delivery_date',
         'first_name',
         'last_name',

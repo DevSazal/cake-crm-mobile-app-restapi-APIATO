@@ -14,6 +14,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('customer_event_id')->constrained()->onDelete('cascade'); // foreignkey for other container table
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // foreignkey for other container table
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade'); // foreignkey for other container table
+            $table->foreignId('event_id')->constrained()->onDelete('cascade'); // foreignkey for other container table
 
             $table->date('delivery_date')->nullable();
 

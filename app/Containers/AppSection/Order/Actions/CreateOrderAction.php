@@ -34,6 +34,8 @@ class CreateOrderAction extends Action
         // TODO: Add foreignkey from backend
         $customer_event = app(FindCustomerEventByIdTask::class)->run($customer_event_id);
         $data['user_id'] = $customer_event->user_id;
+        $data['customer_id'] = $customer_event->customer_id;
+        $data['event_id'] = $customer_event->event_id;
 
         return app(CreateOrderTask::class)->run($data);
     }

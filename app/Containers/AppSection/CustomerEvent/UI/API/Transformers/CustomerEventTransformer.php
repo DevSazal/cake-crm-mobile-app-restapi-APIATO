@@ -6,6 +6,7 @@ use App\Containers\AppSection\CustomerEvent\Models\CustomerEvent;
 use App\Ship\Parents\Transformers\Transformer;
 use App\Containers\AppSection\Customer\UI\API\Transformers\CustomerTransformer;
 use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
+use App\Containers\AppSection\Order\UI\API\Transformers\OrderTransformer;
 
 class CustomerEventTransformer extends Transformer
 {
