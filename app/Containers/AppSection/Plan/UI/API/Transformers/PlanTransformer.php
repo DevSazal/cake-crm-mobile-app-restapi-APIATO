@@ -31,6 +31,8 @@ class PlanTransformer extends Transformer
             'price' => $plan->price,
             'customer' => $plan->customer,
             'sms' => $plan->sms,
+            
+            'razorpay_plan_id' => $plan->razorpay_plan_id,
 
             'created_at' => $plan->created_at,
             'updated_at' => $plan->updated_at,

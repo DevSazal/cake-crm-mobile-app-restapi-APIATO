@@ -35,6 +35,10 @@ class SubscriptionTransformer extends Transformer
             'ends_at' =>  $subscription->ends_at,
             'payment_id' =>  $subscription->payment_id,
             'order_id' =>  $subscription->order_id,
+            
+            'razorpay_payment_id' =>  $subscription->razorpay_payment_id,
+            'razorpay_subscription_id' =>  $subscription->razorpay_subscription_id,
+            'razorpay_signature' =>  $subscription->razorpay_signature,
 
             'created_at' => $subscription->created_at,
             'updated_at' => $subscription->updated_at,

@@ -14,6 +14,9 @@ class Subscription extends Model
         'ends_at',
         'payment_id',
         'order_id',
+        'razorpay_payment_id',
+        'razorpay_subscription_id',
+        'razorpay_signature',
     ];
 
     protected $attributes = [

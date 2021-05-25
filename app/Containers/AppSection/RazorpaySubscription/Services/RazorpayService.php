@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Config;
 use Razorpay\Api\Api;
 
 use App\Containers\AppSection\Plan\Models\Plan;
+use App\Containers\AppSection\User\Models\User;
 
 class RazorpayService implements IRazorpayService
 {
@@ -25,9 +26,10 @@ class RazorpayService implements IRazorpayService
         // dd($plan->id);
         $subscription  = $this->api->subscription->create($subscriptionData);
 
-        \Session::put('plan_id', $plan->id);
-        // dd($subscription);
-        // dd(\Session::get('plan_id'));
+        // TODO: store data
+        $user = User::find(auth()->user()->id);
+        $user->storage = $plan->id;
+        $user->save();
 
         return $subscription->toArray();
     }

@@ -7,6 +7,8 @@ use App\Containers\AppSection\Subscription\Tasks\CreateSubscriptionTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 
+use App\Containers\AppSection\Subscription\Tasks\UpdateSubscriptionTask;
+
 class CreateSubscriptionAction extends Action
 {
     public function run(Request $request): Subscription
@@ -17,12 +19,24 @@ class CreateSubscriptionAction extends Action
             'user_id',
             'payment_id',
             'order_id',
+
+            'razorpay_payment_id',
+            'razorpay_subscription_id',
+            'razorpay_signature',
         ]);
 
+
+        $data['plan_id'] = auth()->user()->storage;
+        $data['user_id'] = auth()->user()->id;
         // $data['trial_ends_at'] = "2021-12-16";
         $data['trial_ends_at'] = \Carbon\Carbon::now()->addMonths(1);
         $data['ends_at'] = \Carbon\Carbon::now()->addMonths(1);
 
-        return app(CreateSubscriptionTask::class)->run($data);
+        if(auth()->user()->subscription){
+            return app(UpdateSubscriptionTask::class)->run(auth()->user()->subscription->id, $data);
+        }else {
+            return app(CreateSubscriptionTask::class)->run($data);
+        }
+
     }
 }

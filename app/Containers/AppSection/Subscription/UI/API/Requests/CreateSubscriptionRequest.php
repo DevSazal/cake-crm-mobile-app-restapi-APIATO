@@ -38,10 +38,14 @@ class CreateSubscriptionRequest extends Request
     {
         return [
             // 'id' => 'required'
-            'plan_id' => 'required|integer',
-            'user_id' => 'required|integer|unique:subscriptions,user_id',
+            'plan_id' => 'nullable|integer',
+            'user_id' => 'nullable|integer|unique:subscriptions,user_id',
             'payment_id' => 'nullable',
             'order_id' => 'nullable',
+            
+            'razorpay_payment_id' => 'required|string|min:2',
+            'razorpay_subscription_id' => 'required|string|min:2',
+            'razorpay_signature' => 'nullable',
         ];
     }
 
