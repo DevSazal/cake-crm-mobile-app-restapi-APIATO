@@ -29,6 +29,7 @@ class CustomerEventTransformer extends Transformer
         $response = [
             'object' => $customerevent->getResourceKey(),
             'id' => $customerevent->getHashedKey(),
+            'real_id' => $customerevent->id,
 
             'customer_id' => $customerevent->customer_id,
             'user_id' => $customerevent->user_id,

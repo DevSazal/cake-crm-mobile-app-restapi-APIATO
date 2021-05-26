@@ -24,4 +24,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::patch('customers/{id}', [Controller::class, 'updateCustomer'])
     ->name('api_customer_update_customer')
-    ->middleware(['auth:api']);
+    ->middleware(['auth:api'])
+    ->middleware(['seller']);

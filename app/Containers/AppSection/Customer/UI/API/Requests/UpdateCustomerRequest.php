@@ -19,6 +19,7 @@ class UpdateCustomerRequest extends Request
      */
     protected array $decode = [
         'id',
+        'events.*.customer_event_id',
     ];
 
     /**
@@ -35,7 +36,25 @@ class UpdateCustomerRequest extends Request
     public function rules(): array
     {
         return [
-            'id' => 'required'
+            'id' => 'required',
+            'user_id' => 'nullable|integer',
+            'first_name' => 'required|string|min:2|max:30',
+            'last_name' => 'required|string|min:2|max:30',
+            'email' => 'required|email',
+            'phone' => 'required|string|min:3|max:20',
+
+            // TODO: Event Array
+            'events' => 'nullable|array',
+            'events.*.customer_event_id' => 'required|integer',
+            'events.*.event_id' => 'required|integer',
+            'events.*.event_date' => 'required|date',
+
+            'address' => 'nullable',
+            'city_id' => 'nullable|integer',
+            'state_id' => 'nullable|integer',
+
+            'gender' => 'nullable|integer',
+            'sms_status' => 'nullable|boolean',
         ];
     }
 
