@@ -7,6 +7,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 class Seller extends Middleware
 {
     /**
@@ -22,7 +24,7 @@ class Seller extends Middleware
         if (!empty(Auth::user()->subscription))
         {
 
-            if (date('Y-m-d') > Auth::user()->subscription->ends_at)
+            if (Carbon::now()->format('Y-m-d') > Auth::user()->subscription->ends_at)
             {
                 // TODO: Membership Verify
                 $response = [

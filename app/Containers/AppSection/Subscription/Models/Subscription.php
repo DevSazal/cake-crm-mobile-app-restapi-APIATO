@@ -14,6 +14,8 @@ class Subscription extends Model
         'ends_at',
         'payment_id',
         'order_id',
+        'sms_count',
+        
         'razorpay_payment_id',
         'razorpay_subscription_id',
         'razorpay_signature',

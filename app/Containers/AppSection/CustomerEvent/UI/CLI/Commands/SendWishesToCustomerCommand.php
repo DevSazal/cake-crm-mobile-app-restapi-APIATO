@@ -7,6 +7,8 @@ use App\Ship\Parents\Commands\ConsoleCommand;
 use Illuminate\Support\Facades\DB;
 use App\Containers\AppSection\CustomerEvent\Models\CustomerEvent;
 
+use Carbon\Carbon;
+
 class SendWishesToCustomerCommand extends ConsoleCommand
 {
     /**
@@ -31,9 +33,9 @@ class SendWishesToCustomerCommand extends ConsoleCommand
     public function handle()
     {
 
-        \Log::info("Cron is working fine! ".date('Y-m-d'));
-        // DB::table('customer_events')->get();
-        $customer_events = CustomerEvent::where('event_date', 'LIKE', "%".date('-m-d') )->get();
+        \Log::info("Cron is working fine! ".Carbon::now()->format('Y-m-d'));
+
+        $customer_events = CustomerEvent::where('event_date', 'LIKE', "%".Carbon::now()->format('-m-d') )->get();
         foreach ($customer_events as $customer_event) {
             if($customer_event->customer->sms_status == true){
                 \Log::info("A wishes sms has been sent to " .$customer_event->customer->phone);
@@ -43,7 +45,16 @@ class SendWishesToCustomerCommand extends ConsoleCommand
                 // sendOTP($customer_event->customer->phone, '2222');
                 $provider = 'The CakeWall';
                 $message = 'Dear '.$customer_event->customer->first_name.', We wish you a very Happy '.$customer_event->event->title.'. Have a great time! - '.$provider.'. \n Powered by - Webassic IT Solutions.';
-                sendSMS($customer_event->customer->phone, $message);
+
+                if ($customer_event->customer->user->subscription) {
+                  if (Carbon::now()->format('Y-m-d') < $customer_event->customer->user->subscription->ends_at) {
+
+                      // TODO: Send Wishes SMS if has subscription
+                      \Log::info("A wishes sms is verified till " .$customer_event->customer->user->subscription->ends_at . " for sending with " .$customer_event->customer->phone);
+                      sendSMS($customer_event->customer->phone, $message);
+                  }
+                }
+
           }else {
                 \Log::info("sms off by seller for " .$customer_event->customer->phone);
           }

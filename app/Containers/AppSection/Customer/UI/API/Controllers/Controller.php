@@ -22,15 +22,6 @@ class Controller extends ApiController
 {
     public function createCustomer(CreateCustomerRequest $request): JsonResponse
     {
-        if (date('Y-m-d') > Auth::user()->subscription->ends_at)
-        {
-          // TODO: Membership Verify
-          $response = [
-            'error' => 'Your subscription is over! Please renew or upgrade your plan.',
-          ];
-
-          return response()->json($response, 401);
-        }
 
         if (auth()->user()->total_customers >=  auth()->user()->subscription->plan->customer)
         {

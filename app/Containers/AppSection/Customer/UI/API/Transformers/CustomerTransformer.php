@@ -28,9 +28,6 @@ class CustomerTransformer extends Transformer
 
     public function transform(Customer $customer): array
     {
-        // $order = Order::where('customer_id', $customer->id)->orderBy('id', 'DESC')->take(1)->first();
-        // dd($order);
-
         $response = [
             'object' => $customer->getResourceKey(),
             'id' => $customer->getHashedKey(),

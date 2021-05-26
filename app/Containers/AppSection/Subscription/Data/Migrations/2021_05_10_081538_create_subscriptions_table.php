@@ -21,6 +21,7 @@ class CreateSubscriptionsTable extends Migration
             //  Razorpay Payment gateway
             $table->string('payment_id')->nullable();
             $table->string('order_id')->nullable();
+            $table->integer('sms_count')->nullable()->default(0);
 
             $table->timestamps();
             //$table->softDeletes();
