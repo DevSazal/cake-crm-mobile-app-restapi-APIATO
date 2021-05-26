@@ -22,5 +22,5 @@
 use App\Containers\AppSection\Order\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::post('orders', [Controller::class, 'createOrder'])
+Route::post('orders/new', [Controller::class, 'createOrder'])
     ->name('api_order_create_order');

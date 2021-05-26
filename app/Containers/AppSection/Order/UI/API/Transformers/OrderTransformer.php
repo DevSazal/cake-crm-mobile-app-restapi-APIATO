@@ -38,6 +38,7 @@ class OrderTransformer extends Transformer
             'cake_title' => $order->cake_title,
             'cake_size' => $order->cake_size,
             'phone' => $order->phone,
+            'status' => $order->status,
 
             'delivery_address' => $order->delivery_address,
             'road_name' => $order->road_name,
