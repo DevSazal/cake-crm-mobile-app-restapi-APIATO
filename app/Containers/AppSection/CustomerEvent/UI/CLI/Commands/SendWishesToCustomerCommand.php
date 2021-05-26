@@ -43,7 +43,11 @@ class SendWishesToCustomerCommand extends ConsoleCommand
                 // \Log::info("A wishes sms has been sent to " .$customer_event->power->trial_ends_at);
                 // \Log::info("A wishes sms has been sent to " .$customer_event->power->plan->customer);
                 // sendOTP($customer_event->customer->phone, '2222');
-                $provider = 'The CakeWall';
+
+                $local_number = ltrim($customer_event->customer->phone, '91');
+	              // echo $local_number;
+                $provider = 'The CakeWall (' .$local_number. ')';
+
                 $message = 'Dear '.$customer_event->customer->first_name.', We wish you a very Happy '.$customer_event->event->title.'. Have a great time! - '.$provider.'. \n Powered by - Webassic IT Solutions.';
 
                 if ($customer_event->customer->user->subscription) {
