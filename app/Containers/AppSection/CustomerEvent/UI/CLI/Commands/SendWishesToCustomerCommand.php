@@ -46,7 +46,8 @@ class SendWishesToCustomerCommand extends ConsoleCommand
 
                 $local_number = ltrim($customer_event->customer->phone, '91');
 	              // echo $local_number;
-                $provider = 'The CakeWall (' .$local_number. ')';
+                $brand = $customer_event->customer->user->seller->brand_name;
+                $provider = $brand. ' (' .$local_number. ')';
 
                 $message = 'Dear '.$customer_event->customer->first_name.', We wish you a very Happy '.$customer_event->event->title.'. Have a great time! - '.$provider.'. \n Powered by - Webassic IT Solutions.';
 
