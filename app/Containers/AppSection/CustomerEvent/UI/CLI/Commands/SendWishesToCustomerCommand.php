@@ -36,6 +36,8 @@ class SendWishesToCustomerCommand extends ConsoleCommand
         \Log::info("Cron is working fine! ".Carbon::now()->format('Y-m-d'));
 
         $customer_events = CustomerEvent::where('event_date', 'LIKE', "%".Carbon::now()->format('-m-d') )->get();
+
+
         foreach ($customer_events as $customer_event) {
             if($customer_event->customer->sms_status == true){
                 \Log::info("A wishes sms has been sent to " .$customer_event->customer->phone);
@@ -49,8 +51,8 @@ class SendWishesToCustomerCommand extends ConsoleCommand
                 $brand = $customer_event->customer->user->seller->brand_name;
                 $provider = $brand. ' (' .$local_number. ')';
 
-                $message = 'Dear '.$customer_event->customer->first_name.', We wish you a very Happy '.$customer_event->event->title.'. Have a great time! - '.$provider.'. \n Powered by - Webassic IT Solutions.';
-
+                $message = 'Dear '.$customer_event->customer->first_name.' , We wish you a very Happy '.$customer_event->event->title.' . Have a great time! - '.$provider.' . Powered by - Webassic IT Solutions.';
+                \Log::info($message);
                 if ($customer_event->customer->user->subscription) {
                   if (Carbon::now()->format('Y-m-d') < $customer_event->customer->user->subscription->ends_at) {
 
