@@ -34,18 +34,18 @@ class Seller extends Middleware
                 return response()->json($response, 401);
             }
 
-            if (auth()->user()->total_customers >=  auth()->user()->subscription->plan->customer)
-            {
-                // TODO: Customer Limit Verify
-                $response = [
-                  'error' => 'Oops! You already reached to your subscription limit.',
-                ];
-
-                // echo auth()->user()->total_customers;
-                // echo auth()->user()->subscription->plan->customer;
-
-                return response()->json($response, 401);
-            }
+            // if (auth()->user()->total_customers >=  auth()->user()->subscription->plan->customer)
+            // {
+            //     // TODO: Customer Limit Verify
+            //     $response = [
+            //       'error' => 'Oops! You already reached to your subscription limit.',
+            //     ];
+            //
+            //     // echo auth()->user()->total_customers;
+            //     // echo auth()->user()->subscription->plan->customer;
+            //
+            //     return response()->json($response, 401);
+            // }
 
           /**
             * continue with incoming request.
