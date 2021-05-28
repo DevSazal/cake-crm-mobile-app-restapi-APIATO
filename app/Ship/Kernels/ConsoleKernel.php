@@ -28,6 +28,7 @@ class ConsoleKernel extends LaravelConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('apiato:wishes:sms')->everyMinute();
+        \Log::info("*** Schedule Karnel Cron is running! ".\Carbon\Carbon::now()->format('Y-m-d h:i:s a'));
     }
 
     /**

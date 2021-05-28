@@ -33,7 +33,7 @@ class SendWishesToCustomerCommand extends ConsoleCommand
     public function handle()
     {
 
-        \Log::info("Cron is working fine! ".Carbon::now()->format('Y-m-d'));
+        \Log::info("** Cron Job is working fine! ".Carbon::now()->format('Y-m-d'));
 
         $customer_events = CustomerEvent::where('event_date', 'LIKE', "%".Carbon::now()->format('-m-d') )->get();
 
