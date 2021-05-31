@@ -38,10 +38,10 @@ class UpdateCustomerRequest extends Request
         return [
             'id' => 'required',
             'user_id' => 'nullable|integer',
-            'first_name' => 'required|string|min:2|max:30',
-            'last_name' => 'required|string|min:2|max:30',
-            'email' => 'required|email',
-            'phone' => 'required|string|min:3|max:20',
+            'first_name' => 'nullable|string|min:2|max:30',
+            'last_name' => 'nullable|string|min:2|max:30',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|string|min:3|max:20',
 
             // TODO: Event Array
             'events' => 'nullable|array',
