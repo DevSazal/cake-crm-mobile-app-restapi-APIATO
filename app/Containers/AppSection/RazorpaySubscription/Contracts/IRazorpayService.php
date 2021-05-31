@@ -5,5 +5,6 @@ interface IRazorpayService
     public function getAllPlans();
     public function createSubscription($subscriptionData);
     public function getAllInvoicesByUser();
+    public function getAllSubscriptionInvoices($subscriptonId);
 
 }

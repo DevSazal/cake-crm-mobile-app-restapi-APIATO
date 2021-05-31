@@ -34,15 +34,18 @@ class RazorpayService implements IRazorpayService
         return $subscription->toArray();
     }
 
-    public function getAllInvoicesByUser(){
-      $invoices = $this->api->invoice->all(
-        array(
-          "subscription_id" => auth()->user()->subscription->razorpay_subscription_id
-        )
-      );
-      // $invoices = "Test";
-      return $invoices;
-
-    }
+    public function getAllSubscriptionInvoices($subscriptonId){
+        $rzrInvoices = $this->api->invoice->all(
+          array(
+            "subscription_id" => $subscriptonId
+          )
+        );
+        $invoices = array();
+        foreach($rzrInvoices->items as $invoice){
+                $invoices[] = $invoice->toArray();
+        }
+        return $invoices;
+  
+      }
 
 }

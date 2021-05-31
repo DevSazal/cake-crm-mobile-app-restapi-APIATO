@@ -50,7 +50,8 @@ class Controller extends ApiController
 
     public function getAllInvoices()
     {
-        $invoices = $this->razorpayService->getAllInvoicesByUser();
+        $subscriptionId = auth()->user()->subscription->razorpay_subscription_id;
+        $invoices = $this->razorpayService->getAllSubscriptionInvoices($subscriptionId);
         return response()->json($invoices);
     }
 
