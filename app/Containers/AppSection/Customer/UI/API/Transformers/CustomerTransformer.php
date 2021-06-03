@@ -15,8 +15,6 @@ class CustomerTransformer extends Transformer
      * @var  array
      */
     protected $defaultIncludes = [
-        'user',
-        'customer_events',
     ];
 
     /**
