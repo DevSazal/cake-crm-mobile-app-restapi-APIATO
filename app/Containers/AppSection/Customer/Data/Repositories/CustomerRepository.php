@@ -10,7 +10,7 @@ class CustomerRepository extends Repository
      * @var array
      */
     protected $fieldSearchable = [
-        'id' => '=',
+       // 'id' => '=',
         'first_name'=>'like',
         'last_name'=>'like',
         'email'=>'like'
