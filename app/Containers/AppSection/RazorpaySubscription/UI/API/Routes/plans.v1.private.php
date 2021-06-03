@@ -23,4 +23,5 @@ use App\Containers\AppSection\RazorpaySubscription\UI\API\Controllers\Controller
 use Illuminate\Support\Facades\Route;
 
 Route::get('subscriptions/plans', [Controller::class, 'plans'])
-    ->name('api_subsciptions_plans');
+    ->name('api_subsciptions_plans')
+    ->middleware(['auth:api']);
