@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @apiGroup           Subsciptions
- * @apiName            plans
+ * @apiGroup           RazorpaySubscription
+ * @apiName            getAllInvoices
  *
- * @api                {GET} /v1/subscriptions/plans Endpoint title here..
+ * @api                {GET} /v1/invoices Endpoint title here..
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -22,6 +22,7 @@
 use App\Containers\AppSection\RazorpaySubscription\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('subscriptions/plans', [Controller::class, 'plans'])
-    ->name('api_subsciptions_plans')
+Route::get('invoices', [Controller::class, 'getAllInvoices'])
+    ->name('api_razorpaysubscription_get_all_invoices')
     ->middleware(['auth:api']);
+

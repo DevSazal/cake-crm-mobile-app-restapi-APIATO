@@ -26,6 +26,7 @@ class EventTransformer extends Transformer
         $response = [
             'object' => $event->getResourceKey(),
             'id' => $event->getHashedKey(),
+            'real_event_id' => $event->id,
 
             'title' => $event->title,
             'sms_template' => $event->sms_template,
