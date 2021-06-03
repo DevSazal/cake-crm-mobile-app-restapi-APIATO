@@ -11,6 +11,9 @@ class CustomerRepository extends Repository
      */
     protected $fieldSearchable = [
         'id' => '=',
+        'first_name'=>'like',
+        'last_name'=>'like',
+        'email'=>'like'
         // ...
     ];
 }
