@@ -1,0 +1,1217 @@
+{
+	"info": {
+		"_postman_id": "ae2d8515-6d76-4f67-b327-87274cd4226f",
+		"name": "cake-crm-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://cakecrm.test/v1/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Sazal Ahamed\",\r\n    \"email\" : \"sazal@webassic.com\",\r\n    \"password\" : \"123456\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/register",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/oauth/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"sazal@webassic.com\",\r\n    \"password\" : \"123456\",\r\n    \"client_id\" : 2,\r\n    \"client_secret\" : \"nClIsZxyFh6xMaKBNAgDUtJRZlIosYEFn58KnKk8\",\r\n    \"grant_type\" : \"password\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/oauth/token",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"oauth",
+						"token"
+					]
+				},
+				"description": "token to login with mobile app"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/user/profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNzk1NGI2ZmQwYTA2MzdkNzdiY2M5Yjk0ZTAwNWM4MjUwNmQzZDVkYmYzNjBmODNiNzY5MDU4ZDc3ZDE1NmE3YTIzYmEwNjZlMjg3MjgxZjUiLCJpYXQiOjE2MjAyOTU0MjUuMDk5ODEzLCJuYmYiOjE2MjAyOTU0MjUuMDk5ODIzLCJleHAiOjE2MjAzODE4MjQuMjY0MTUyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.oQtLbEkmYbuXQmhrOkucSgUnlyGE8lBOj0bTIq7MLFfmF30AfqmO1_wAdH4UiuH-tispOcA9Qj6iOVdSPK3XFW2dU79eRqjkHxRCpseRVbNsQefxolYyS92aG-GowZGQJtRICD0Ag9H20w-SjtqtB8pML6JUJv2_MAwtL4sSCwDPiNOmKgr7kSTzlya70CYBcYx4Osfo4dG-QZHpTKqmu4L4BmiHd7xCutPLM_w_uEqVC-GrotuFEYfBR6EPZmzU67ej0jtUL0tDIrEaEpwNF4hB_LgyETkWzTDYOy0BzaUJO6Ut32rcJRh-75MjbKKlkWOoca2prVvUdB4YL3cx3-KeVF5CwVNeFQWJYiO8Q2LOcdNoORFj1i29aBLhIvwBBGH6H3B0wwS5Odk8nMSz2ncu9CsudNnKd7ELDy00C9c-LEjLNxRBrZDwlMEqnJnNlqWDKwg5oKpDfbxumJcnTlHmnohFJo53mxQ749dgg9SpW0EIX9Z2f7meQJQncoqZZsfL91SAWMFGUzIdUE242wW8rumzn58mqNBTmmg1ODVGoHwGI-SDc4RJxg6rE990KU2gqpBubYq_Ik5ioSEGox50ROWE2_gBVqvyAY4sFYeHIMhuiwA0GTsnPiYPb2szAQOhxWcxNAlkgPeW-sgG_rj5_1dZkMG2fe5IsjEKmwc",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://cakecrm.test/v1/user/profile",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"user",
+						"profile"
+					]
+				},
+				"description": "Get Authenticated User Information Using token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/sellers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNzk1NGI2ZmQwYTA2MzdkNzdiY2M5Yjk0ZTAwNWM4MjUwNmQzZDVkYmYzNjBmODNiNzY5MDU4ZDc3ZDE1NmE3YTIzYmEwNjZlMjg3MjgxZjUiLCJpYXQiOjE2MjAyOTU0MjUuMDk5ODEzLCJuYmYiOjE2MjAyOTU0MjUuMDk5ODIzLCJleHAiOjE2MjAzODE4MjQuMjY0MTUyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.oQtLbEkmYbuXQmhrOkucSgUnlyGE8lBOj0bTIq7MLFfmF30AfqmO1_wAdH4UiuH-tispOcA9Qj6iOVdSPK3XFW2dU79eRqjkHxRCpseRVbNsQefxolYyS92aG-GowZGQJtRICD0Ag9H20w-SjtqtB8pML6JUJv2_MAwtL4sSCwDPiNOmKgr7kSTzlya70CYBcYx4Osfo4dG-QZHpTKqmu4L4BmiHd7xCutPLM_w_uEqVC-GrotuFEYfBR6EPZmzU67ej0jtUL0tDIrEaEpwNF4hB_LgyETkWzTDYOy0BzaUJO6Ut32rcJRh-75MjbKKlkWOoca2prVvUdB4YL3cx3-KeVF5CwVNeFQWJYiO8Q2LOcdNoORFj1i29aBLhIvwBBGH6H3B0wwS5Odk8nMSz2ncu9CsudNnKd7ELDy00C9c-LEjLNxRBrZDwlMEqnJnNlqWDKwg5oKpDfbxumJcnTlHmnohFJo53mxQ749dgg9SpW0EIX9Z2f7meQJQncoqZZsfL91SAWMFGUzIdUE242wW8rumzn58mqNBTmmg1ODVGoHwGI-SDc4RJxg6rE990KU2gqpBubYq_Ik5ioSEGox50ROWE2_gBVqvyAY4sFYeHIMhuiwA0GTsnPiYPb2szAQOhxWcxNAlkgPeW-sgG_rj5_1dZkMG2fe5IsjEKmwc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\" : \"XbPW7awNkzl83LD6\",\r\n    \"first_name\" : \"SAZAL\",\r\n    \"last_name\" : \"AHAMED\",\r\n    \"brand_name\" : \"Mou Dessert\",\r\n    \"phone\": \"01758148788\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/sellers",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"sellers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/sellers (update seller info)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNzk1NGI2ZmQwYTA2MzdkNzdiY2M5Yjk0ZTAwNWM4MjUwNmQzZDVkYmYzNjBmODNiNzY5MDU4ZDc3ZDE1NmE3YTIzYmEwNjZlMjg3MjgxZjUiLCJpYXQiOjE2MjAyOTU0MjUuMDk5ODEzLCJuYmYiOjE2MjAyOTU0MjUuMDk5ODIzLCJleHAiOjE2MjAzODE4MjQuMjY0MTUyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.oQtLbEkmYbuXQmhrOkucSgUnlyGE8lBOj0bTIq7MLFfmF30AfqmO1_wAdH4UiuH-tispOcA9Qj6iOVdSPK3XFW2dU79eRqjkHxRCpseRVbNsQefxolYyS92aG-GowZGQJtRICD0Ag9H20w-SjtqtB8pML6JUJv2_MAwtL4sSCwDPiNOmKgr7kSTzlya70CYBcYx4Osfo4dG-QZHpTKqmu4L4BmiHd7xCutPLM_w_uEqVC-GrotuFEYfBR6EPZmzU67ej0jtUL0tDIrEaEpwNF4hB_LgyETkWzTDYOy0BzaUJO6Ut32rcJRh-75MjbKKlkWOoca2prVvUdB4YL3cx3-KeVF5CwVNeFQWJYiO8Q2LOcdNoORFj1i29aBLhIvwBBGH6H3B0wwS5Odk8nMSz2ncu9CsudNnKd7ELDy00C9c-LEjLNxRBrZDwlMEqnJnNlqWDKwg5oKpDfbxumJcnTlHmnohFJo53mxQ749dgg9SpW0EIX9Z2f7meQJQncoqZZsfL91SAWMFGUzIdUE242wW8rumzn58mqNBTmmg1ODVGoHwGI-SDc4RJxg6rE990KU2gqpBubYq_Ik5ioSEGox50ROWE2_gBVqvyAY4sFYeHIMhuiwA0GTsnPiYPb2szAQOhxWcxNAlkgPeW-sgG_rj5_1dZkMG2fe5IsjEKmwc",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n    \"first_name\": \"MALIHA\",\r\n    \"last_name\": \"MOU\",\r\n    \"brand_name\": \"Cake LOVE\",\r\n    \"phone\": \"010000000\",\r\n    \"logo\": \"\",\r\n    \"address\": null,\r\n    \"city_id\": null,\r\n    \"state_id\": null,\r\n    \"zip_code\": \"5555\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/sellers/O9apoVGyLz5qNX4K",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"sellers",
+						"O9apoVGyLz5qNX4K"
+					]
+				},
+				"description": "Demo= \r\nhttp://cakecrm.test/storage/seller-logo/20210507062951_344.jpg"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/seller/logo/{id) (image update Api)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZDhhZmVmMGE0YTI5NzM1OTQwYzVjZTEyMDJjYjU1NDc4NDQwZTlhNmZjYWI1MmNlMDc4ODM5MDcyN2E5M2ZjMzgxNTYzY2EwZTUwODllOGIiLCJpYXQiOjE2MjAzODI0MDcuOTA3NTI4LCJuYmYiOjE2MjAzODI0MDcuOTA3NTM3LCJleHAiOjE2MjA0Njg4MDcuMDc4MTAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.zQRGZRGTnDg3vEGZFa3YLhQcGeNcIzuyCKx2kvb-cOlJ2V1rWZJdVhJ9VenIR5uKSnIAPO_6R68JOrjgl_V9gBMXOM1h_yOhqfDnCIMGzX3_PK1-kSVy-iOubB7gIZxa7mY_fcIl0rf1NKnJ7IcYPyujPQ3J0msGvWfLB11lJqXIsO34rX_Jux3uE9rW1jrfFTIOaVhsXfEo3pIA60g3zpQSBG0hvDZrwr9NoNlwnCS1NZwmi3wUm4CGQmdhTu8kgMpnnH6SnE-KxFtiARB7dtvLTmoBqZPeUdfned986AjdDSTLjatX3AlRQrWmi3818KeH8yift14S-QD57ehE4DZ2TJKOQGJm-zgzjSaMtsc6UimbKYJ5Otec1mhBTEJkonXzf2ADq2KswctvxmF1rXgQ7PNtDJS83S2IlXq0w925pKtjZMYHdPeQHp2CjYYxhfIBx0Lq2dWwjzLqNLORJ4g1KY8t6V1mbMBA-JeJcckBlvWGORePhtCPtjjh8VfJzWEfirkY2tMAd-EfD6DwZ4D3qQzinR0sAfXDhKAknZZKT_fLkMB07U7NtaMo-5HUifbAf_njvbLlbO5qozOYPkkJZk4yCFkeKB45GUHh39MQl9dZZzuD5jfICULWo3F_FpbPlLhDeUKosfvcVx626xMsr92pyBZZvEUVhk4gx1c",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "logo",
+							"type": "file",
+							"src": "/C:/Users/Appsolic Lab .Inc/Downloads/cake.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/seller/logo/O9apoVGyLz5qNX4K",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"seller",
+						"logo",
+						"O9apoVGyLz5qNX4K"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/plans",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiYmNiMDUyNDY3ZWY3NGE2NDVmOTQ2NzJlZGVhYTdkY2ZhOTUzOGJkOTZhMDg4NDcxZTRlOWNiMGRiODgxZWFmMGJhNDI1ZmIyNmUyNDhhMTAiLCJpYXQiOjE2MjA2MzIyNDQuNjM2OTQ2LCJuYmYiOjE2MjA2MzIyNDQuNjM2OTU0LCJleHAiOjE2MjA3MTg2NDQuMTY2OTcsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.A-utq-2peEe_dq1chYVF8BhCaMu6DZ6b5RQyiFr_n9rcr1WZsuL3uGrP1Fg-emVoaBs-mnMhYwTwP2x92g0AcaOGPWvZLIS-za1gktz7vzfHJgxmcuCTKR6wwOGxF-FFXnvsWxdP0rVG3WRjWyVG2Gx0hkPTIx4QX2tI8vqazaVB_J7FT-lT04FL8cUuRYRVucClnS6TgmrOtOpQUReyhOGKYVCaYMZbzy44iCvB0sXS3Q6UieURrptVXMxYX6N5KKa8W3OusgwfJCtLmFXPeMubNvl1xDR-R1WmOlgrbhYoyHsqJ-rxAE2JTTdDfh6V4AL9BVSQnOVNMw4kdzTt3-AeXGRrP55mMJhDOa-lib4sRNL4KHrQaL126S9n2aanuLl9F_9yvwjgwLVjuIZd1QEv9LsrgPzTJCh0Aqt1tgpFzr1MD1XjClBIY7WiopOY5vq8_QNQq-S-BZQSmjdA8effT8ufBH1x-QsVcWyZtDVf_brsiJZuN0WCF76EUY9MLuD1zTXaIRRYY37mPOOQPC80mwgtdZeeqrrqnzXvPFlighR4stLuthzA8cxhuoWwqJXizSMhLtU5T_6kBr7e0y5YXpK6HC3L6fu1bN5pNz0-7KpGBlTdGYwYRTBDJUhZNfR5BmQ5uNyAw7p3pD-PbRIPn7b3lFRASW6Hy2i2VBA",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Starter",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/plans",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/plans/NxOpZowo9GmjKqdR (update plan)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiYmNiMDUyNDY3ZWY3NGE2NDVmOTQ2NzJlZGVhYTdkY2ZhOTUzOGJkOTZhMDg4NDcxZTRlOWNiMGRiODgxZWFmMGJhNDI1ZmIyNmUyNDhhMTAiLCJpYXQiOjE2MjA2MzIyNDQuNjM2OTQ2LCJuYmYiOjE2MjA2MzIyNDQuNjM2OTU0LCJleHAiOjE2MjA3MTg2NDQuMTY2OTcsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.A-utq-2peEe_dq1chYVF8BhCaMu6DZ6b5RQyiFr_n9rcr1WZsuL3uGrP1Fg-emVoaBs-mnMhYwTwP2x92g0AcaOGPWvZLIS-za1gktz7vzfHJgxmcuCTKR6wwOGxF-FFXnvsWxdP0rVG3WRjWyVG2Gx0hkPTIx4QX2tI8vqazaVB_J7FT-lT04FL8cUuRYRVucClnS6TgmrOtOpQUReyhOGKYVCaYMZbzy44iCvB0sXS3Q6UieURrptVXMxYX6N5KKa8W3OusgwfJCtLmFXPeMubNvl1xDR-R1WmOlgrbhYoyHsqJ-rxAE2JTTdDfh6V4AL9BVSQnOVNMw4kdzTt3-AeXGRrP55mMJhDOa-lib4sRNL4KHrQaL126S9n2aanuLl9F_9yvwjgwLVjuIZd1QEv9LsrgPzTJCh0Aqt1tgpFzr1MD1XjClBIY7WiopOY5vq8_QNQq-S-BZQSmjdA8effT8ufBH1x-QsVcWyZtDVf_brsiJZuN0WCF76EUY9MLuD1zTXaIRRYY37mPOOQPC80mwgtdZeeqrrqnzXvPFlighR4stLuthzA8cxhuoWwqJXizSMhLtU5T_6kBr7e0y5YXpK6HC3L6fu1bN5pNz0-7KpGBlTdGYwYRTBDJUhZNfR5BmQ5uNyAw7p3pD-PbRIPn7b3lFRASW6Hy2i2VBA",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Starter",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "40",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/plans/NxOpZowo9GmjKqdR",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"plans",
+						"NxOpZowo9GmjKqdR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/customers (all customers)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiYmNiMDUyNDY3ZWY3NGE2NDVmOTQ2NzJlZGVhYTdkY2ZhOTUzOGJkOTZhMDg4NDcxZTRlOWNiMGRiODgxZWFmMGJhNDI1ZmIyNmUyNDhhMTAiLCJpYXQiOjE2MjA2MzIyNDQuNjM2OTQ2LCJuYmYiOjE2MjA2MzIyNDQuNjM2OTU0LCJleHAiOjE2MjA3MTg2NDQuMTY2OTcsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.A-utq-2peEe_dq1chYVF8BhCaMu6DZ6b5RQyiFr_n9rcr1WZsuL3uGrP1Fg-emVoaBs-mnMhYwTwP2x92g0AcaOGPWvZLIS-za1gktz7vzfHJgxmcuCTKR6wwOGxF-FFXnvsWxdP0rVG3WRjWyVG2Gx0hkPTIx4QX2tI8vqazaVB_J7FT-lT04FL8cUuRYRVucClnS6TgmrOtOpQUReyhOGKYVCaYMZbzy44iCvB0sXS3Q6UieURrptVXMxYX6N5KKa8W3OusgwfJCtLmFXPeMubNvl1xDR-R1WmOlgrbhYoyHsqJ-rxAE2JTTdDfh6V4AL9BVSQnOVNMw4kdzTt3-AeXGRrP55mMJhDOa-lib4sRNL4KHrQaL126S9n2aanuLl9F_9yvwjgwLVjuIZd1QEv9LsrgPzTJCh0Aqt1tgpFzr1MD1XjClBIY7WiopOY5vq8_QNQq-S-BZQSmjdA8effT8ufBH1x-QsVcWyZtDVf_brsiJZuN0WCF76EUY9MLuD1zTXaIRRYY37mPOOQPC80mwgtdZeeqrrqnzXvPFlighR4stLuthzA8cxhuoWwqJXizSMhLtU5T_6kBr7e0y5YXpK6HC3L6fu1bN5pNz0-7KpGBlTdGYwYRTBDJUhZNfR5BmQ5uNyAw7p3pD-PbRIPn7b3lFRASW6Hy2i2VBA",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "XbPW7awNkzl83LD6",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Shoile",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Afrin",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "se.shoile@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0182636366",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/customers",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/events (Add New Event)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2E0MjU3YjI0Zjk0MzIzYzEwMDc2NWQ3ZjgwZDQ4MDIwY2E5YzdhMGU1NTkzYzg1OTllZjlhOWE4Y2NjNDg3MzgzMzMzZTczN2MwMDUzZjIiLCJpYXQiOjE2MjA5NzI1MzAuMzE2MTQyLCJuYmYiOjE2MjA5NzI1MzAuMzE2MTY2LCJleHAiOjE2NTI1MDg1MjkuNjE2NjY3LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.Do8-hqHXHza62lBv2EncJoEsvmQQtO-nTTvu47ZAnIvWbmLvkwATPQSGgnqLi5F9Vagd4Mu4I6ElocS5_augTQeLgvKoBi6F9_IuK31-aF4L8cbh18oW057jSuO7LFCJp-4vAOIo7V97eqpyZ_tvTrI6iZDCmT6Ze-3IOkRnHPYEUxkdaQ4jX9BuieF97rpjORxu0qc_2nrFs5s5o5D6UqjK8v59TLAx-HqJIuxm8lU_dhYcck8Y5CEGdDpELkceijEVaFM5BjTcV5Eb39P97oz0KvXfZX3USTqt4baMQeugjtUkfSkHC-vMe-HCT4WIqumUqljzMe0fqdPniJNVGrT3kkkQbhwEWjPqQ6SWtGHNwQvNFtv7L1KKNKO_BOxOyNbGE-jjv63mMNWG1V49PtVacP-x2M5C6bGZmbVFQSpxjZzKjMK7umatMofdyOCZWbX0hESZbCArNq5wfpoUNO8mCTV6WW6rTMApLOgpS0kIX2HEGKkqc1GAv2UVUPewA8IrKccf6bs8gyWQM1PVyG9G6TIwV1vsi0SCupygFRloI_Sutzquy-7LpJvnlqm4-7eXRBu8OlzWmJ1RvZI9vS1wO9zkldGEr6n5c1y65t04h1pbjSuILnH0q2a7_XisAr_RdGlq9939LERE3YHluIMhrbMuahHnDvr9uIB6MfE",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cakecrm.test/v1/events?title=Anniversary",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"events"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Anniversary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/events (Update Event)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiY2ViZDViYzY4OWExYWUwM2Q5MmQyM2UyZWZkNWQzMWJhOTc4ODY1Nzg2N2FkODkzZWY3MmEyMjZiMzNmNWJmY2RjYmYzNGIyMGY3MzJhODAiLCJpYXQiOjE2MjA3MTk1MDkuMDI4NzMyLCJuYmYiOjE2MjA3MTk1MDkuMDI4NzQxLCJleHAiOjE2MjA4MDU5MDguMzE0MDA2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.c_GqRVjLu5HhO2ig8U_HqxNA0TfDV6KhrWEsnE5HLedrgIyE2M6p9HrHZAHhmPETx93YJDfU-7L79LRCuU-LJA0sehQzrjPhuJwIQggHBgcVj1Q0uMrxWXGU6pk_FNAMjRbrn_NRPxS1Wcyj67fP_pZs9Lca8cES4l_BLT4dKi7bex8uaZHvtEhfICxEEtos99qIZZv5j9GhweTsFnwZaFQGLZGVc9_EfLHVI-DUgxJpqqqvLtfQEyike8cDDmmkRS2Z5osIS9R6oTY3uEkOgwYobAbzi5UrLdSJCzoFgdSx_1IXuYWuIK__tmrU5eFnam3MlmwTSR6JHPNKb6NrfJfyyIHOaBjzinOokUwRudSxSHZkDgPQmKsJvni7GmSHLWEq-HNmH2H3uTQwDLCmnUSCa8u0_B_5Gy6FpmiylTNG5QZ6MJ2JTRoCHoQHXaOOU-Boc6ja6y5flNll2-2bRD9U_SjL5ZPcKIbeziqFEryJkstGbeh1JvGlOHaAp7MkapmcjGJ141D7N-u3opnkxngb1Jx2rDMghIZmKPhGRZcAIg6-tpijFp_recY_EsATqhZjFlcFmjfXO0-jjjjnFEc-LGvlaALDoMXqo5b8HdiqGZguCftm9S7EofQ7oipK9IJThHP6giUHEt_I7gpqzli-pfi-c2lHH13ApGfXuMg",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Birthday",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/events/XbPW7awNkzl83LD6",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"events",
+						"XbPW7awNkzl83LD6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/customer-events (Get ALL Events)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiY2ViZDViYzY4OWExYWUwM2Q5MmQyM2UyZWZkNWQzMWJhOTc4ODY1Nzg2N2FkODkzZWY3MmEyMjZiMzNmNWJmY2RjYmYzNGIyMGY3MzJhODAiLCJpYXQiOjE2MjA3MTk1MDkuMDI4NzMyLCJuYmYiOjE2MjA3MTk1MDkuMDI4NzQxLCJleHAiOjE2MjA4MDU5MDguMzE0MDA2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.c_GqRVjLu5HhO2ig8U_HqxNA0TfDV6KhrWEsnE5HLedrgIyE2M6p9HrHZAHhmPETx93YJDfU-7L79LRCuU-LJA0sehQzrjPhuJwIQggHBgcVj1Q0uMrxWXGU6pk_FNAMjRbrn_NRPxS1Wcyj67fP_pZs9Lca8cES4l_BLT4dKi7bex8uaZHvtEhfICxEEtos99qIZZv5j9GhweTsFnwZaFQGLZGVc9_EfLHVI-DUgxJpqqqvLtfQEyike8cDDmmkRS2Z5osIS9R6oTY3uEkOgwYobAbzi5UrLdSJCzoFgdSx_1IXuYWuIK__tmrU5eFnam3MlmwTSR6JHPNKb6NrfJfyyIHOaBjzinOokUwRudSxSHZkDgPQmKsJvni7GmSHLWEq-HNmH2H3uTQwDLCmnUSCa8u0_B_5Gy6FpmiylTNG5QZ6MJ2JTRoCHoQHXaOOU-Boc6ja6y5flNll2-2bRD9U_SjL5ZPcKIbeziqFEryJkstGbeh1JvGlOHaAp7MkapmcjGJ141D7N-u3opnkxngb1Jx2rDMghIZmKPhGRZcAIg6-tpijFp_recY_EsATqhZjFlcFmjfXO0-jjjjnFEc-LGvlaALDoMXqo5b8HdiqGZguCftm9S7EofQ7oipK9IJThHP6giUHEt_I7gpqzli-pfi-c2lHH13ApGfXuMg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cakecrm.test/v1/customer-events",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"customer-events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/customer-events (Add Customer Events)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiY2ViZDViYzY4OWExYWUwM2Q5MmQyM2UyZWZkNWQzMWJhOTc4ODY1Nzg2N2FkODkzZWY3MmEyMjZiMzNmNWJmY2RjYmYzNGIyMGY3MzJhODAiLCJpYXQiOjE2MjA3MTk1MDkuMDI4NzMyLCJuYmYiOjE2MjA3MTk1MDkuMDI4NzQxLCJleHAiOjE2MjA4MDU5MDguMzE0MDA2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.c_GqRVjLu5HhO2ig8U_HqxNA0TfDV6KhrWEsnE5HLedrgIyE2M6p9HrHZAHhmPETx93YJDfU-7L79LRCuU-LJA0sehQzrjPhuJwIQggHBgcVj1Q0uMrxWXGU6pk_FNAMjRbrn_NRPxS1Wcyj67fP_pZs9Lca8cES4l_BLT4dKi7bex8uaZHvtEhfICxEEtos99qIZZv5j9GhweTsFnwZaFQGLZGVc9_EfLHVI-DUgxJpqqqvLtfQEyike8cDDmmkRS2Z5osIS9R6oTY3uEkOgwYobAbzi5UrLdSJCzoFgdSx_1IXuYWuIK__tmrU5eFnam3MlmwTSR6JHPNKb6NrfJfyyIHOaBjzinOokUwRudSxSHZkDgPQmKsJvni7GmSHLWEq-HNmH2H3uTQwDLCmnUSCa8u0_B_5Gy6FpmiylTNG5QZ6MJ2JTRoCHoQHXaOOU-Boc6ja6y5flNll2-2bRD9U_SjL5ZPcKIbeziqFEryJkstGbeh1JvGlOHaAp7MkapmcjGJ141D7N-u3opnkxngb1Jx2rDMghIZmKPhGRZcAIg6-tpijFp_recY_EsATqhZjFlcFmjfXO0-jjjjnFEc-LGvlaALDoMXqo5b8HdiqGZguCftm9S7EofQ7oipK9IJThHP6giUHEt_I7gpqzli-pfi-c2lHH13ApGfXuMg",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "event_date",
+							"value": "15-01-1995",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "customer_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "event_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/customer-events",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"customer-events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/customers (All Customers WIth Event)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiY2ViZDViYzY4OWExYWUwM2Q5MmQyM2UyZWZkNWQzMWJhOTc4ODY1Nzg2N2FkODkzZWY3MmEyMjZiMzNmNWJmY2RjYmYzNGIyMGY3MzJhODAiLCJpYXQiOjE2MjA3MTk1MDkuMDI4NzMyLCJuYmYiOjE2MjA3MTk1MDkuMDI4NzQxLCJleHAiOjE2MjA4MDU5MDguMzE0MDA2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.c_GqRVjLu5HhO2ig8U_HqxNA0TfDV6KhrWEsnE5HLedrgIyE2M6p9HrHZAHhmPETx93YJDfU-7L79LRCuU-LJA0sehQzrjPhuJwIQggHBgcVj1Q0uMrxWXGU6pk_FNAMjRbrn_NRPxS1Wcyj67fP_pZs9Lca8cES4l_BLT4dKi7bex8uaZHvtEhfICxEEtos99qIZZv5j9GhweTsFnwZaFQGLZGVc9_EfLHVI-DUgxJpqqqvLtfQEyike8cDDmmkRS2Z5osIS9R6oTY3uEkOgwYobAbzi5UrLdSJCzoFgdSx_1IXuYWuIK__tmrU5eFnam3MlmwTSR6JHPNKb6NrfJfyyIHOaBjzinOokUwRudSxSHZkDgPQmKsJvni7GmSHLWEq-HNmH2H3uTQwDLCmnUSCa8u0_B_5Gy6FpmiylTNG5QZ6MJ2JTRoCHoQHXaOOU-Boc6ja6y5flNll2-2bRD9U_SjL5ZPcKIbeziqFEryJkstGbeh1JvGlOHaAp7MkapmcjGJ141D7N-u3opnkxngb1Jx2rDMghIZmKPhGRZcAIg6-tpijFp_recY_EsATqhZjFlcFmjfXO0-jjjjnFEc-LGvlaALDoMXqo5b8HdiqGZguCftm9S7EofQ7oipK9IJThHP6giUHEt_I7gpqzli-pfi-c2lHH13ApGfXuMg",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Piyash\",\r\n    \"last_name\": \"Azhar\",\r\n    \"email\": \"piyash@gmail.com\",\r\n\r\n    \"events\": [\r\n        {\r\n            \"event_id\" : \"1\",\r\n            \"event_date\" : \"1995-04-21\" \r\n        },\r\n        {\r\n            \"event_id\" : \"2\",\r\n            \"event_date\" : \"1995-04-23\" \r\n        }\r\n    ],\r\n\r\n    \"phone\": \"01800586665\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/customers",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/customer-events (Add Customer Events)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiY2ViZDViYzY4OWExYWUwM2Q5MmQyM2UyZWZkNWQzMWJhOTc4ODY1Nzg2N2FkODkzZWY3MmEyMjZiMzNmNWJmY2RjYmYzNGIyMGY3MzJhODAiLCJpYXQiOjE2MjA3MTk1MDkuMDI4NzMyLCJuYmYiOjE2MjA3MTk1MDkuMDI4NzQxLCJleHAiOjE2MjA4MDU5MDguMzE0MDA2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.c_GqRVjLu5HhO2ig8U_HqxNA0TfDV6KhrWEsnE5HLedrgIyE2M6p9HrHZAHhmPETx93YJDfU-7L79LRCuU-LJA0sehQzrjPhuJwIQggHBgcVj1Q0uMrxWXGU6pk_FNAMjRbrn_NRPxS1Wcyj67fP_pZs9Lca8cES4l_BLT4dKi7bex8uaZHvtEhfICxEEtos99qIZZv5j9GhweTsFnwZaFQGLZGVc9_EfLHVI-DUgxJpqqqvLtfQEyike8cDDmmkRS2Z5osIS9R6oTY3uEkOgwYobAbzi5UrLdSJCzoFgdSx_1IXuYWuIK__tmrU5eFnam3MlmwTSR6JHPNKb6NrfJfyyIHOaBjzinOokUwRudSxSHZkDgPQmKsJvni7GmSHLWEq-HNmH2H3uTQwDLCmnUSCa8u0_B_5Gy6FpmiylTNG5QZ6MJ2JTRoCHoQHXaOOU-Boc6ja6y5flNll2-2bRD9U_SjL5ZPcKIbeziqFEryJkstGbeh1JvGlOHaAp7MkapmcjGJ141D7N-u3opnkxngb1Jx2rDMghIZmKPhGRZcAIg6-tpijFp_recY_EsATqhZjFlcFmjfXO0-jjjjnFEc-LGvlaALDoMXqo5b8HdiqGZguCftm9S7EofQ7oipK9IJThHP6giUHEt_I7gpqzli-pfi-c2lHH13ApGfXuMg",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "event_date",
+							"value": "1995-01-19",
+							"type": "text"
+						},
+						{
+							"key": "customer_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "event_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/customer-events",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"customer-events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/customers (All Customers WIth Event)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiY2ViZDViYzY4OWExYWUwM2Q5MmQyM2UyZWZkNWQzMWJhOTc4ODY1Nzg2N2FkODkzZWY3MmEyMjZiMzNmNWJmY2RjYmYzNGIyMGY3MzJhODAiLCJpYXQiOjE2MjA3MTk1MDkuMDI4NzMyLCJuYmYiOjE2MjA3MTk1MDkuMDI4NzQxLCJleHAiOjE2MjA4MDU5MDguMzE0MDA2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.c_GqRVjLu5HhO2ig8U_HqxNA0TfDV6KhrWEsnE5HLedrgIyE2M6p9HrHZAHhmPETx93YJDfU-7L79LRCuU-LJA0sehQzrjPhuJwIQggHBgcVj1Q0uMrxWXGU6pk_FNAMjRbrn_NRPxS1Wcyj67fP_pZs9Lca8cES4l_BLT4dKi7bex8uaZHvtEhfICxEEtos99qIZZv5j9GhweTsFnwZaFQGLZGVc9_EfLHVI-DUgxJpqqqvLtfQEyike8cDDmmkRS2Z5osIS9R6oTY3uEkOgwYobAbzi5UrLdSJCzoFgdSx_1IXuYWuIK__tmrU5eFnam3MlmwTSR6JHPNKb6NrfJfyyIHOaBjzinOokUwRudSxSHZkDgPQmKsJvni7GmSHLWEq-HNmH2H3uTQwDLCmnUSCa8u0_B_5Gy6FpmiylTNG5QZ6MJ2JTRoCHoQHXaOOU-Boc6ja6y5flNll2-2bRD9U_SjL5ZPcKIbeziqFEryJkstGbeh1JvGlOHaAp7MkapmcjGJ141D7N-u3opnkxngb1Jx2rDMghIZmKPhGRZcAIg6-tpijFp_recY_EsATqhZjFlcFmjfXO0-jjjjnFEc-LGvlaALDoMXqo5b8HdiqGZguCftm9S7EofQ7oipK9IJThHP6giUHEt_I7gpqzli-pfi-c2lHH13ApGfXuMg",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Piyash\",\r\n    \"last_name\": \"Azhar\",\r\n    \"email\": \"piyash@gmail.com\",\r\n\r\n    \"events\": [\r\n        {\r\n            \"event_id\" : \"1\",\r\n            \"event_date\" : \"1995-04-21\" \r\n        },\r\n        {\r\n            \"event_id\" : \"2\",\r\n            \"event_date\" : \"1995-04-23\" \r\n        }\r\n    ],\r\n\r\n    \"phone\": \"01800586665\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/customers",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.textlocal.in/send/ (Send SMS)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "apikey",
+							"value": "v5e5EVdMs14-je4WUk5SrfbzwJYhl2JMt34CI5gcak",
+							"type": "text"
+						},
+						{
+							"key": "numbers",
+							"value": "919359433670",
+							"type": "text"
+						},
+						{
+							"key": "sender",
+							"value": "WITSMS",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "Hi, 5840 is your OTP to your account for Onsite Fuel Delivery - Webassic IT Solutions",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.textlocal.in/send/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"textlocal",
+						"in"
+					],
+					"path": [
+						"send",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/register-mobile (RegisterUserByMobile)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Piyash\",\r\n    \"last_name\" : \"Azhar\",\r\n    \"email\" : \"piyash@mail.com\",\r\n    \"phone\" : \"918530488998\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/register-mobile",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"register-mobile"
+					]
+				},
+				"description": "RegisterUserByMobile (Separate Post API) and sendOTP"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/register-verify-otp/KJqn4Z26Owdlv6MB",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"otp\" : \"3771\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/register-verify-otp/KJqn4Z26Owdlv6MB",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"register-verify-otp",
+						"KJqn4Z26Owdlv6MB"
+					]
+				},
+				"description": "RegisterVerifyByOTP (PATCH API) to active registered user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/send-otp-for-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\" : \"918530488998\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/send-otp-for-login",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"send-otp-for-login"
+					]
+				},
+				"description": "3. Send OTP to login with mobile (POST API)\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/oauth-token/otp (OAuth Token By OTP)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\" : \"918530488998\",\r\n    \"otp\" : \"8353\"\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/oauth-token/otp",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"oauth-token",
+						"otp"
+					]
+				},
+				"description": "4. OAuth Token By OTP Login (POST API)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/logout (logout)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://cakecrm.test/v1/logout",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://dev-bk-cakecrm.webassicpark.com/v1/orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dev-bk-cakecrm.webassicpark.com/v1/orders",
+					"protocol": "https",
+					"host": [
+						"dev-bk-cakecrm",
+						"webassicpark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/seller-plans {adv}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTA4NGI2ZmJlZjJkMzIxMTZlMDA0YmZlYzY4YjY2OWExN2RiMmZjMTE1ODk1ZWU5OGZhNzczN2Y5ZmQ0ZWMwMmRiOGQwMjk5N2Q1MGFlOWQiLCJpYXQiOjE2MjE5NDI1ODcuOTUxMjI2LCJuYmYiOjE2MjE5NDI1ODcuOTUxMjM1LCJleHAiOjE2NTM0Nzg1ODcuODU2OTI4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ekUwWysWSJi9NteFX3mYeVzh31StX1BnWWLa1isGMUlvPFBzYw11Qlcw6aK02KAIUgzLg1G4tkChNAzf_akMlaFQ0hzaUWTKaBDjho24N-5QYUjnh29DX4blkiAtLTE4CrbwrcdDgqfJRc2C5IxAsXaaeu182x7XnsVT0s1oyBsUCKpwrhSA2T1WeF0-fBOmvbolYAJ3yFvmlgKr_08LlQy7ycQw4aPQ6mEHIsmU488fXlvpu3phDmalOQjjmt7YOKtoOlr-YxjiLT5o5P7eygol-T2KUyIM1CzSx0Y9z6MTk_mN-flKDIPGxY5o7yGOqaj4BsQ_NPlEzFZmNHyopNX_VSMpUrcoHw2bosN46Dn-Q56WSGlfrf8mhJnzrlCA_0xAfBz7Swp34edwvrlsBWHkDhbvgidvZMaA0MBCphdgR0NfXEJYfLEwYgjRPqx8nZsF8ui4sTxw3vlxIZ1oD8oXkdV8NZE2GpwpDhNjYtWmaAlmC8wpQK8DDsuosiAv3gC4qxz5lj5wQf-o_cbfmWJVsmbnX2eoVW4Q1glEpysEcE5Rko9Iwj6neTebsOR63paGF-GSC6VhzQPqEIq1EO-gm4L9Li_QhXbaX5ku4vudyehaL_PHIf5lKHLeju4wxlLlz7zVaqX48gkGIkCc8ksfjxF_sH0_vOEarG-9Os8",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"customer\" : {\r\n            \"email\" : \"aaa@rr.com\",\r\n            \"contact\" : \"19950421\" \r\n        },\r\n    \r\n    \"plan_id\" : \"plan_HCG5IOSRVhZvqm\",\r\n    \r\n    \"total_count\": 12\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/subscriptions",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://cakecrm.test/v1/seller-plans {adv}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTA4NGI2ZmJlZjJkMzIxMTZlMDA0YmZlYzY4YjY2OWExN2RiMmZjMTE1ODk1ZWU5OGZhNzczN2Y5ZmQ0ZWMwMmRiOGQwMjk5N2Q1MGFlOWQiLCJpYXQiOjE2MjE5NDI1ODcuOTUxMjI2LCJuYmYiOjE2MjE5NDI1ODcuOTUxMjM1LCJleHAiOjE2NTM0Nzg1ODcuODU2OTI4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ekUwWysWSJi9NteFX3mYeVzh31StX1BnWWLa1isGMUlvPFBzYw11Qlcw6aK02KAIUgzLg1G4tkChNAzf_akMlaFQ0hzaUWTKaBDjho24N-5QYUjnh29DX4blkiAtLTE4CrbwrcdDgqfJRc2C5IxAsXaaeu182x7XnsVT0s1oyBsUCKpwrhSA2T1WeF0-fBOmvbolYAJ3yFvmlgKr_08LlQy7ycQw4aPQ6mEHIsmU488fXlvpu3phDmalOQjjmt7YOKtoOlr-YxjiLT5o5P7eygol-T2KUyIM1CzSx0Y9z6MTk_mN-flKDIPGxY5o7yGOqaj4BsQ_NPlEzFZmNHyopNX_VSMpUrcoHw2bosN46Dn-Q56WSGlfrf8mhJnzrlCA_0xAfBz7Swp34edwvrlsBWHkDhbvgidvZMaA0MBCphdgR0NfXEJYfLEwYgjRPqx8nZsF8ui4sTxw3vlxIZ1oD8oXkdV8NZE2GpwpDhNjYtWmaAlmC8wpQK8DDsuosiAv3gC4qxz5lj5wQf-o_cbfmWJVsmbnX2eoVW4Q1glEpysEcE5Rko9Iwj6neTebsOR63paGF-GSC6VhzQPqEIq1EO-gm4L9Li_QhXbaX5ku4vudyehaL_PHIf5lKHLeju4wxlLlz7zVaqX48gkGIkCc8ksfjxF_sH0_vOEarG-9Os8",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"razorpay_payment_id\" : \"xplan_HCG5IOSRVhZvqm\",\r\n    \"razorpay_subscription_id\" : \"xzplan_HCG5IOSRVhZvqm\",\r\n    \"razorpay_signature\" : \"xzplan_HCG5IOSRVhZvqm\"\r\n    \r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://cakecrm.test/v1/seller-plans",
+					"protocol": "http",
+					"host": [
+						"cakecrm",
+						"test"
+					],
+					"path": [
+						"v1",
+						"seller-plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://dev-bk-cakecrm.webassicpark.com/v1/oauth-token/otp {X}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\" : \"918329819375\",\r\n    \"otp\" : \"3106\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev-bk-cakecrm.webassicpark.com/v1/oauth-token/otp",
+					"protocol": "https",
+					"host": [
+						"dev-bk-cakecrm",
+						"webassicpark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"oauth-token",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://dev-bk-cakecrm.webassicpark.com/v1/orders/  {X}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzFiYTRlOWIyMjNiOTI3ZTBlYWNkODYwYWQ1NWVmZjI3Mzc1YWVjMjQ1YzBmZDU3ZTA2ZTM0ZjdmZWJhYTY4ODcyNTZhY2FmNGM5Yzk4NmMiLCJpYXQiOjE2MjIwMDY3NzUuNzQ0MDA2LCJuYmYiOjE2MjIwMDY3NzUuNzQ0MDEyLCJleHAiOjE2NTM1NDI3NzUuNzI4MDk1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.S-WH_VLI_CiADP7OUImkRMFlqc-UW1jAREJeBCXBHdm9dr-dVVSEh1Nvjre6KlR6ylxhTRS5MaLUBqIoE-Tk-jNmHueiXAUaMV8HDdhBf2IMfywzmy6QJSdOYadHNXKeyke6DwSO0o-dB2xlz-bN1F4-NO8AT5Q-arQOXxNwgUfy6Q91bgiJeRaQpJiOFI78tHchytheh8RbXNimeaY1VGG-RjzSv0F0aSZJ1_mVOF4G-V0bhHnRkrJMFOVR9aX-3zVr4l_vZ2ql5AlHcGEcWH9tNxqMTkn-W5ukBt-gDht7WJgIj7sF1oqgJRG6186AmSB8ZjCF7K-Xa2u6Q6KdPDAkGAjv5BypBqELRVdieyp-3RCyX8HJne7S62_0o4DhsiSFZqODzgvdQcs6fFCCNY5eHmxhIIfo8HcZ-Cn0403CBjdO7r1bUiIFSD3x1RPo4R4tuMHOZeRDXybKkYLwvDeIUVksGuChNbbhvWXeMqJkEtf28S38nYn4GdazL9kB1Mro_uu2pgDp84FRS8v2J6uYyCN4p2WFUsAYs1RE7XgT0rbEcaINpF7zVk2qy--lvue3LiBTeCtr4PzVeNaoJ2qYxST1rO3dxWmgqKegC3MnBRmGpT79KjGBrH_UEAR_6qg14cBhL7z6uGelP4L2AAYjl5h72EAN8pX91No-e-E",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"delivery_date\": \"2021-05-26\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev-bk-cakecrm.webassicpark.com/v1/orders/",
+					"protocol": "https",
+					"host": [
+						"dev-bk-cakecrm",
+						"webassicpark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://dev-bk-cakecrm.webassicpark.com/v1/customers {X}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzFiYTRlOWIyMjNiOTI3ZTBlYWNkODYwYWQ1NWVmZjI3Mzc1YWVjMjQ1YzBmZDU3ZTA2ZTM0ZjdmZWJhYTY4ODcyNTZhY2FmNGM5Yzk4NmMiLCJpYXQiOjE2MjIwMDY3NzUuNzQ0MDA2LCJuYmYiOjE2MjIwMDY3NzUuNzQ0MDEyLCJleHAiOjE2NTM1NDI3NzUuNzI4MDk1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.S-WH_VLI_CiADP7OUImkRMFlqc-UW1jAREJeBCXBHdm9dr-dVVSEh1Nvjre6KlR6ylxhTRS5MaLUBqIoE-Tk-jNmHueiXAUaMV8HDdhBf2IMfywzmy6QJSdOYadHNXKeyke6DwSO0o-dB2xlz-bN1F4-NO8AT5Q-arQOXxNwgUfy6Q91bgiJeRaQpJiOFI78tHchytheh8RbXNimeaY1VGG-RjzSv0F0aSZJ1_mVOF4G-V0bhHnRkrJMFOVR9aX-3zVr4l_vZ2ql5AlHcGEcWH9tNxqMTkn-W5ukBt-gDht7WJgIj7sF1oqgJRG6186AmSB8ZjCF7K-Xa2u6Q6KdPDAkGAjv5BypBqELRVdieyp-3RCyX8HJne7S62_0o4DhsiSFZqODzgvdQcs6fFCCNY5eHmxhIIfo8HcZ-Cn0403CBjdO7r1bUiIFSD3x1RPo4R4tuMHOZeRDXybKkYLwvDeIUVksGuChNbbhvWXeMqJkEtf28S38nYn4GdazL9kB1Mro_uu2pgDp84FRS8v2J6uYyCN4p2WFUsAYs1RE7XgT0rbEcaINpF7zVk2qy--lvue3LiBTeCtr4PzVeNaoJ2qYxST1rO3dxWmgqKegC3MnBRmGpT79KjGBrH_UEAR_6qg14cBhL7z6uGelP4L2AAYjl5h72EAN8pX91No-e-E",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dev-bk-cakecrm.webassicpark.com/v1/customers",
+					"protocol": "https",
+					"host": [
+						"dev-bk-cakecrm",
+						"webassicpark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://dev-bk-cakecrm.webassicpark.com/v1/seller-plans {X}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzFiYTRlOWIyMjNiOTI3ZTBlYWNkODYwYWQ1NWVmZjI3Mzc1YWVjMjQ1YzBmZDU3ZTA2ZTM0ZjdmZWJhYTY4ODcyNTZhY2FmNGM5Yzk4NmMiLCJpYXQiOjE2MjIwMDY3NzUuNzQ0MDA2LCJuYmYiOjE2MjIwMDY3NzUuNzQ0MDEyLCJleHAiOjE2NTM1NDI3NzUuNzI4MDk1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.S-WH_VLI_CiADP7OUImkRMFlqc-UW1jAREJeBCXBHdm9dr-dVVSEh1Nvjre6KlR6ylxhTRS5MaLUBqIoE-Tk-jNmHueiXAUaMV8HDdhBf2IMfywzmy6QJSdOYadHNXKeyke6DwSO0o-dB2xlz-bN1F4-NO8AT5Q-arQOXxNwgUfy6Q91bgiJeRaQpJiOFI78tHchytheh8RbXNimeaY1VGG-RjzSv0F0aSZJ1_mVOF4G-V0bhHnRkrJMFOVR9aX-3zVr4l_vZ2ql5AlHcGEcWH9tNxqMTkn-W5ukBt-gDht7WJgIj7sF1oqgJRG6186AmSB8ZjCF7K-Xa2u6Q6KdPDAkGAjv5BypBqELRVdieyp-3RCyX8HJne7S62_0o4DhsiSFZqODzgvdQcs6fFCCNY5eHmxhIIfo8HcZ-Cn0403CBjdO7r1bUiIFSD3x1RPo4R4tuMHOZeRDXybKkYLwvDeIUVksGuChNbbhvWXeMqJkEtf28S38nYn4GdazL9kB1Mro_uu2pgDp84FRS8v2J6uYyCN4p2WFUsAYs1RE7XgT0rbEcaINpF7zVk2qy--lvue3LiBTeCtr4PzVeNaoJ2qYxST1rO3dxWmgqKegC3MnBRmGpT79KjGBrH_UEAR_6qg14cBhL7z6uGelP4L2AAYjl5h72EAN8pX91No-e-E",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"razorpay_payment_id\" : \"xplan_HCG5IOSRVhZvqm\",\r\n    \"razorpay_subscription_id\" : \"xzplan_HCG5IOSRVhZvqm\",\r\n    \"razorpay_signature\" : \"xzplan_HCG5IOSRVhZvqm\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "https://dev-bk-cakecrm.webassicpark.com/v1/seller-plans",
+					"protocol": "https",
+					"host": [
+						"dev-bk-cakecrm",
+						"webassicpark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"seller-plans"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
