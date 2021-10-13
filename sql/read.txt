@@ -1,0 +1,35 @@
+TEXTLOCAL_API_KEY=v5e5EVdMs14-je4WUk5SrfbzwJYhl2JMt34CI5gcak
+TEXTLOCAL_SENDER=WITSMS
+
+Lab@DESKTOP MINGW64 /c/wamp64/www/cake-crm-api (master)
+$ php artisan passport:install
+Encryption keys generated successfully.
+Personal access client created successfully.
+Client ID: 1
+Client secret: cXQCKFcJWej6Tf590zW6QBfBCiCB5F3flVMTDwiI
+Password grant client created successfully.
+Client ID: 2
+Client secret: nClIsZxyFh6xMaKBNAgDUtJRZlIosYEFn58KnKk8
+
+
+
+http://cakecrm.test/v1/register
+{
+    "name" : "Sazal Ahamed",
+    "email" : "sazal@webassic.com",
+    "password" : "123456"
+}
+
+
+http://cakecrm.test/v1/oauth/token
+{
+    "username" : "sazal@webassic.com",
+    "password" : "123456",
+    "client_id" : 2,
+    "client_secret" : "nClIsZxyFh6xMaKBNAgDUtJRZlIosYEFn58KnKk8",
+    "grant_type" : "password"
+}
+
+
+CRON JOB
+php -d register_argc_argv=On /home/ebook/public_html/dev-bk-cakecrm/artisan schedule:run >> /dev/null 2>&1
